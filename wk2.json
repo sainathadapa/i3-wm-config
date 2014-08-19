@@ -1,0 +1,54 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1037,
+               "width": 1916,
+               "x": 1922,
+               "y": 20
+            },
+            "name": "i3: Layout saving in i3 - Google Chrome",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Google\\-chrome$",
+                "instance": "^Google\\-chrome$"
+               // "title": "^i3\\:\\ Layout\\ saving\\ in\\ i3\\ \\-\\ Google\\ Chrome$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1037,
+               "width": 1916,
+               "x": 0,
+               "y": 0
+            },
+            "name": "RStudio - Mozilla Firefox",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Firefox$",
+                "instance": "^Navigator$"
+               // "title": "^RStudio\\ \\-\\ Mozilla\\ Firefox$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
