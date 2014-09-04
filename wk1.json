@@ -1,29 +1,29 @@
 // vim:ts=4:sw=4:et
 {
-    // tabbed split container with 4 children
+    // tabbed split container with 2 children
     "border": "pixel",
     "floating": "auto_off",
     "layout": "tabbed",
-    "percent": 1,
+    "percent": 0.2,
     "type": "con",
     "nodes": [
         {
             "border": "pixel",
             "floating": "auto_off",
             "geometry": {
-               "height": 378,
-               "width": 658,
-               "x": 0,
-               "y": 0
+               "height": 460,
+               "width": 260,
+               "x": 1932,
+               "y": 30
             },
-            "name": "sainath@sainath-desktop: ~",
-            "percent": 0.25,
+            "name": "Hangouts",
+            "percent": 0.5,
             "swallows": [
                {
-                "class": "^Gnome\\-terminal$",
-                "instance": "^gnome\\-terminal$",
-               // "title": "^sainath\\@sainath\\-desktop\\:\\ \\~$",
-               // "window_role": "^gnome\\-terminal\\-window\\-18847\\-110039800\\-1407316786$"
+                "class": "^Google\\-chrome$",
+                "instance": "^crx_nckgahadagoaajjgafhacjanaoiihapd$",
+                "title": "^Hangouts$",
+                "window_role": "^pop\\-up$"
                }
             ],
             "type": "con"
@@ -32,8 +32,58 @@
             "border": "pixel",
             "floating": "auto_off",
             "geometry": {
-               "height": 1037,
-               "width": 1916,
+               "height": 420,
+               "width": 280,
+               "x": 12,
+               "y": 12
+            },
+            "name": "janardhan swamy",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Google\\-chrome$",
+                "instance": "^crx_nckgahadagoaajjgafhacjanaoiihapd$",
+                "window_role": "^pop\\-up$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // tabbed split container with 4 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.8,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "geometry": {
+               "height": 431,
+               "width": 642,
+               "x": 0,
+               "y": 0
+            },
+            "name": "sainath@sainath-desktop: ~",
+            "percent": 0.25,
+            "swallows": [
+               {
+                "class": "terminal",
+                "instance": "terminal"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "geometry": {
+               "height": 550,
+               "width": 855,
                "x": 0,
                "y": 0
             },
@@ -42,29 +92,7 @@
             "swallows": [
                {
                 "class": "^Nautilus$",
-                "instance": "^nautilus$",
-               // "title": "^Home$"
-               }
-            ],
-            "type": "con"
-        },
-        {
-            "border": "none",
-            "current_border_width": 2,
-            "floating": "user_off",
-            "geometry": {
-               "height": 1080,
-               "width": 3840,
-               "x": 0,
-               "y": 0
-            },
-            "name": "Desktop",
-            "percent": 0.25,
-            "swallows": [
-               {
-                "class": "^Nautilus$",
-                "instance": "^desktop_window$",
-               // "title": "^Desktop$"
+                "instance": "^nautilus$"
                }
             ],
             "type": "con"
@@ -73,18 +101,36 @@
             "border": "pixel",
             "floating": "auto_off",
             "geometry": {
-               "height": 669,
-               "width": 1272,
-               "x": 282,
-               "y": 111
+               "height": 1080,
+               "width": 1920,
+               "x": 0,
+               "y": 0
             },
-            "name": "   [foobar2000 v1.3.3]",
+            "name": "Untitled – Kate",
+            "percent": 0.25,
+            "swallows": [
+               {
+                "class": "^Kate$",
+                "instance": "^kate$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1028,
+               "width": 1863,
+               "x": 57,
+               "y": 52
+            },
+            "name": "foobar2000 v1.3.3",
             "percent": 0.25,
             "swallows": [
                {
                 "class": "^Wine$",
-                "instance": "^foobar2000\\.exe$",
-               // "title": "^\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"
+                "instance": "^foobar2000\\.exe$"
                }
             ],
             "type": "con"
