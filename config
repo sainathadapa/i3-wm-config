@@ -238,3 +238,4 @@ exec --no-startup-id copyq show
 # specific window settings
 for_window [class="^Google\\-chrome$" instance="^crx_nckgahadagoaajjgafhacjanaoiihapd$" window_role="^pop\\-up$"] floating enable
 for_window [class="Nautilus" instance="^desktop_window$"] floating disable
+for_window [class="^Wine$" instance="^foobar2000"] floating disable
