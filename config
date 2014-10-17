@@ -37,7 +37,7 @@ client.urgent           #C10004 #900000 #ffffff #900000
 font pango:Ubuntu Sans Mono 10
 
 #turn off mouse following
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # Set specific floating behaviour
 #for_window [window_role="pop-up"] floating enable
@@ -46,7 +46,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec finalterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -230,12 +230,17 @@ exec --no-startup-id playonlinux --run foobar2000
 exec --no-startup-id google-chrome --restore-last-session
 exec --no-startup-id gnome-terminal
 exec --no-startup-id firefox
-exec --no-startup-id nautilus
+exec --no-startup-id nemo
 exec --no-startup-id calibre
 exec --no-startup-id kate
 exec --no-startup-id copyq show
 
 # specific window settings
-for_window [class="^Google\\-chrome$" instance="^crx_nckgahadagoaajjgafhacjanaoiihapd$" window_role="^pop\\-up$"] floating enable
-for_window [class="Nautilus" instance="^desktop_window$"] floating disable
-for_window [class="^Wine$" instance="^foobar2000"] floating disable
+for_window [class="Nemo" instance="^desktop_window$"] floating disable
+for_window [class="^Wine$" instance="^foobar2000" title="^Main\\ Window\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"] floating disable
+
+# fixing workspaces location if they are matched incorrectly
+exec --no-startup-id "i3-msg 'workspace Two; move workspace to output $lm'"
+exec --no-startup-id "i3-msg 'workspace One; move workspace to output $rm'"
+exec --no-startup-id "i3-msg 'workspace Three; move workspace to output $lm'"
+
