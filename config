@@ -39,14 +39,11 @@ font pango:Ubuntu Sans Mono 10
 #turn off mouse following
 focus_follows_mouse yes
 
-# Set specific floating behaviour
-#for_window [window_role="pop-up"] floating enable
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec finalterm
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -58,12 +55,6 @@ bindsym $mod+d exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -156,6 +147,13 @@ bindsym $mod+Shift+6 move container to workspace Six
 bindsym $mod+Shift+7 move container to workspace Seven
 bindsym $mod+Shift+8 move container to workspace Eight
 
+bindsym $mod+Tab move workspace to right
+bindsym $mod+Shift+Tab move container to output right
+
+bindsym $mod+c exec /home/sainath/i3-run-or-raise/bin/i3-run-or-raise -c "Google-chrome" google-chrome
+bindsym $mod+t exec /home/sainath/i3-run-or-raise/bin/i3-run-or-raise -c "Gnome-terminal" gnome-terminal
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -165,26 +163,16 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        #bindsym j resize shrink width 10 px or 10 ppt
-        #bindsym k resize grow height 10 px or 10 ppt
-        #bindsym l resize shrink height 10 px or 10 ppt
-        #bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -201,17 +189,24 @@ bar {
 	}
 }
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+z move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+z scratchpad show
+
 # foobar stuff
 # https://faq.i3wm.org/question/2742/send-key-sequence-to-running-application/
 bindsym Control+Left exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Left'
 bindsym Control+Right exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Right'
-bindsym Control+slash exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
+# bindsym Control+slash exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
 bindsym XF86AudioPlay exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
 bindsym XF86Calculator exec gnome-calculator
 
 # volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +10% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -10% && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
 
 #don't move to neighbouring screen with hjkl
 force_focus_wrapping yes
@@ -233,7 +228,6 @@ exec --no-startup-id firefox
 exec --no-startup-id nemo
 exec --no-startup-id calibre
 exec --no-startup-id kate
-exec --no-startup-id copyq show
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
