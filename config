@@ -1,17 +1,30 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# first setting the primary and secondary screens
 # do 'xrandr -q' to find out the current active displays
 
 # set left and right monitor displays
-
 set $lm HDMI-0 
 set $rm DVI-I-1
 
+# workspace names
+set $wk1 "1:One"
+set $wk2 "2:Two"
+set $wk3 "3:Three"
+set $wk4 "4:Four"
+set $wk5 "5:Five"
+set $wk6 "6:Six"
+set $wk7 "7:Seven"
+set $wk8 "8:Eight"
+set $wk9 "9:Nine"
+set $wk0 "0:Zero"
+
+# hdmi on left and dvi on right
 exec xrandr --output $rm --auto --primary --right-of $lm
 
 # setting mod variable to windows key
 set $mod Mod4
+
+force_focus_wrapping yes
 
 # default workspace layout
 workspace_layout tabbed
@@ -36,7 +49,7 @@ client.urgent           #C10004 #900000 #ffffff #900000
 # chose a FreeType font, such as:
 font pango:Ubuntu Sans Mono 10
 
-#turn off mouse following
+#turn on mouse following
 focus_follows_mouse yes
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -101,51 +114,52 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 #workspace names and outputs
-workspace "One" output $lm
-workspace "Two" output $rm
-workspace "Three" output $lm
-workspace "Four" output $rm 
-workspace "Five" output $lm 
-workspace "Six" output $rm 
-workspace "Seven" output $lm 
-workspace "Eight" output $rm 
-
+workspace $wk1 output $lm
+workspace $wk2 output $rm
+workspace $wk3 output $lm
+workspace $wk4 output $rm 
+workspace $wk5 output $lm 
+workspace $wk6 output $rm 
+workspace $wk7 output $lm 
+workspace $wk8 output $rm 
+workspace $wk9 output $lm 
+workspace $wk0 output $rm 
 
 # switch to workspace
-bindsym $mod+KP_1 workspace One
-bindsym $mod+KP_2 workspace Two
-bindsym $mod+KP_3 workspace Three
-bindsym $mod+KP_4 workspace Four
-bindsym $mod+1 workspace One
-bindsym $mod+2 workspace Two
-bindsym $mod+3 workspace Three
-bindsym $mod+4 workspace Four
-bindsym $mod+KP_5 workspace Five
-bindsym $mod+KP_6 workspace Six
-bindsym $mod+KP_7 workspace Seven
-bindsym $mod+KP_8 workspace Eight
-bindsym $mod+5 workspace Five
-bindsym $mod+6 workspace Six
-bindsym $mod+7 workspace Seven
-bindsym $mod+8 workspace Eight
+bindsym $mod+KP_1 workspace $wk1
+bindsym $mod+KP_2 workspace $wk2
+bindsym $mod+KP_3 workspace $wk3
+bindsym $mod+KP_4 workspace $wk4
+bindsym $mod+1 workspace $wk1
+bindsym $mod+2 workspace $wk2
+bindsym $mod+3 workspace $wk3
+bindsym $mod+4 workspace $wk4
+bindsym $mod+KP_5 workspace $wk5
+bindsym $mod+KP_6 workspace $wk6
+bindsym $mod+KP_7 workspace $wk7
+bindsym $mod+KP_8 workspace $wk8
+bindsym $mod+5 workspace $wk5
+bindsym $mod+6 workspace $wk6
+bindsym $mod+7 workspace $wk7
+bindsym $mod+8 workspace $wk8
 
 # move focused container to workspace
-bindsym $mod+Shift+KP_1 move container to workspace One
-bindsym $mod+Shift+KP_2 move container to workspace Two
-bindsym $mod+Shift+KP_3 move container to workspace Three
-bindsym $mod+Shift+KP_4 move container to workspace Four
-bindsym $mod+Shift+1 move container to workspace One
-bindsym $mod+Shift+2 move container to workspace Two
-bindsym $mod+Shift+3 move container to workspace Three
-bindsym $mod+Shift+4 move container to workspace Four
-bindsym $mod+Shift+KP_5 move container to workspace Five
-bindsym $mod+Shift+KP_6 move container to workspace Six
-bindsym $mod+Shift+KP_7 move container to workspace Seven
-bindsym $mod+Shift+KP_8 move container to workspace Eight
-bindsym $mod+Shift+5 move container to workspace Five
-bindsym $mod+Shift+6 move container to workspace Six
-bindsym $mod+Shift+7 move container to workspace Seven
-bindsym $mod+Shift+8 move container to workspace Eight
+bindsym $mod+Shift+KP_1 move container to workspace $wk1
+bindsym $mod+Shift+KP_2 move container to workspace $wk2
+bindsym $mod+Shift+KP_3 move container to workspace $wk3
+bindsym $mod+Shift+KP_4 move container to workspace $wk4
+bindsym $mod+Shift+1 move container to workspace $wk1
+bindsym $mod+Shift+2 move container to workspace $wk2
+bindsym $mod+Shift+3 move container to workspace $wk3
+bindsym $mod+Shift+4 move container to workspace $wk4
+bindsym $mod+Shift+KP_5 move container to workspace $wk5
+bindsym $mod+Shift+KP_6 move container to workspace $wk6
+bindsym $mod+Shift+KP_7 move container to workspace $wk7
+bindsym $mod+Shift+KP_8 move container to workspace $wk8
+bindsym $mod+Shift+5 move container to workspace $wk5
+bindsym $mod+Shift+6 move container to workspace $wk6
+bindsym $mod+Shift+7 move container to workspace $wk7
+bindsym $mod+Shift+8 move container to workspace $wk8
 
 bindsym $mod+Tab move workspace to right
 bindsym $mod+Shift+Tab move container to output right
@@ -183,6 +197,7 @@ bar {
 	status_command i3status
 	tray_output primary 
 	position bottom
+	strip_workspace_numbers yes
 	colors{
         	background #232323
 	        statusline #DCDCDC
@@ -208,33 +223,28 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_out
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -10% && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
 
-#don't move to neighbouring screen with hjkl
-force_focus_wrapping yes
 
 # window border size
 new_window pixel 2
 
 # load layouts
-exec --no-startup-id "i3-msg 'workspace Three; append_layout /home/sainath/.i3/wk3.json'"
-exec --no-startup-id "i3-msg 'workspace Two; append_layout /home/sainath/.i3/wk2.json'"
-exec --no-startup-id "i3-msg 'workspace One; append_layout /home/sainath/.i3/wk1.json'"
+#exec --no-startup-id "i3-msg 'workspace Three; append_layout /home/sainath/.i3/wk3.json'"
+#exec --no-startup-id "i3-msg 'workspace Two; append_layout /home/sainath/.i3/wk2.json'"
+#exec --no-startup-id "i3-msg 'workspace One; append_layout /home/sainath/.i3/wk1.json'"
 
 # start applications
-exec --no-startup-id dropbox start
-exec --no-startup-id playonlinux --run foobar2000
-exec --no-startup-id google-chrome --restore-last-session
-exec --no-startup-id gnome-terminal
-exec --no-startup-id firefox
-exec --no-startup-id nemo
-exec --no-startup-id calibre
-exec --no-startup-id kate
+#exec --no-startup-id dropbox start
+#exec --no-startup-id playonlinux --run foobar2000
+#exec --no-startup-id google-chrome --restore-last-session
+#exec --no-startup-id gnome-terminal
+#exec --no-startup-id firefox
+#exec --no-startup-id nemo
+#exec --no-startup-id calibre
+#exec --no-startup-id kate
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [class="^Wine$" instance="^foobar2000" title="^Main\\ Window\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"] floating disable
-
-# fixing workspaces location if they are matched incorrectly
-exec --no-startup-id "i3-msg 'workspace Two; move workspace to output $lm'"
-exec --no-startup-id "i3-msg 'workspace One; move workspace to output $rm'"
-exec --no-startup-id "i3-msg 'workspace Three; move workspace to output $lm'"
-
+ 
+# restart I3 at the end to deal with wrong workspace naming
+exec --no-startup-id sleep 5s && i3-msg restart
