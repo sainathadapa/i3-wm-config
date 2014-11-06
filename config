@@ -8,9 +8,9 @@ set $rm DVI-I-1
 
 # workspace names
 set $wk1 "1:One"
-set $wk2 "2:Two"
-set $wk3 "3:Three"
-set $wk4 "4:Four"
+set $wk2 "2:email"
+set $wk3 "3:music"
+set $wk4 "4:Rspace"
 set $wk5 "5:Five"
 set $wk6 "6:Six"
 set $wk7 "7:Seven"
@@ -126,40 +126,40 @@ workspace $wk9 output $lm
 workspace $wk0 output $rm 
 
 # switch to workspace
-bindsym $mod+KP_1 workspace $wk1
-bindsym $mod+KP_2 workspace $wk2
-bindsym $mod+KP_3 workspace $wk3
-bindsym $mod+KP_4 workspace $wk4
-bindsym $mod+1 workspace $wk1
-bindsym $mod+2 workspace $wk2
-bindsym $mod+3 workspace $wk3
-bindsym $mod+4 workspace $wk4
-bindsym $mod+KP_5 workspace $wk5
-bindsym $mod+KP_6 workspace $wk6
-bindsym $mod+KP_7 workspace $wk7
-bindsym $mod+KP_8 workspace $wk8
-bindsym $mod+5 workspace $wk5
-bindsym $mod+6 workspace $wk6
-bindsym $mod+7 workspace $wk7
-bindsym $mod+8 workspace $wk8
+bindsym $mod+KP_1 workspace number 1
+bindsym $mod+KP_2 workspace number 2 
+bindsym $mod+KP_3 workspace number 3
+bindsym $mod+KP_4 workspace number 4
+bindsym $mod+KP_5 workspace number 5
+bindsym $mod+KP_6 workspace number 6
+bindsym $mod+KP_7 workspace number 7
+bindsym $mod+KP_8 workspace number 8
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
 
 # move focused container to workspace
-bindsym $mod+Shift+KP_1 move container to workspace $wk1
-bindsym $mod+Shift+KP_2 move container to workspace $wk2
-bindsym $mod+Shift+KP_3 move container to workspace $wk3
-bindsym $mod+Shift+KP_4 move container to workspace $wk4
-bindsym $mod+Shift+1 move container to workspace $wk1
-bindsym $mod+Shift+2 move container to workspace $wk2
-bindsym $mod+Shift+3 move container to workspace $wk3
-bindsym $mod+Shift+4 move container to workspace $wk4
-bindsym $mod+Shift+KP_5 move container to workspace $wk5
-bindsym $mod+Shift+KP_6 move container to workspace $wk6
-bindsym $mod+Shift+KP_7 move container to workspace $wk7
-bindsym $mod+Shift+KP_8 move container to workspace $wk8
-bindsym $mod+Shift+5 move container to workspace $wk5
-bindsym $mod+Shift+6 move container to workspace $wk6
-bindsym $mod+Shift+7 move container to workspace $wk7
-bindsym $mod+Shift+8 move container to workspace $wk8
+bindsym $mod+Shift+KP_1 move container to workspace number 1
+bindsym $mod+Shift+KP_2 move container to workspace number 2
+bindsym $mod+Shift+KP_3 move container to workspace number 3
+bindsym $mod+Shift+KP_4 move container to workspace number 4
+bindsym $mod+Shift+KP_5 move container to workspace number 5
+bindsym $mod+Shift+KP_6 move container to workspace number 6
+bindsym $mod+Shift+KP_7 move container to workspace number 7
+bindsym $mod+Shift+KP_8 move container to workspace number 8
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
 
 bindsym $mod+Tab move workspace to right
 bindsym $mod+Shift+Tab move container to output right
@@ -197,7 +197,6 @@ bar {
 	status_command i3status
 	tray_output primary 
 	position bottom
-	strip_workspace_numbers yes
 	colors{
         	background #232323
 	        statusline #DCDCDC
