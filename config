@@ -168,8 +168,8 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Tab move workspace to right
 bindsym $mod+Shift+Tab move container to output right
 
-bindsym $mod+c exec /home/sainath/i3-run-or-raise/bin/i3-run-or-raise -c "Google-chrome" google-chrome
-bindsym $mod+t exec /home/sainath/i3-run-or-raise/bin/i3-run-or-raise -c "Gnome-terminal" gnome-terminal
+bindsym $mod+c exec /home/sainath/i3-wm-config/i3-run-or-raise/bin/i3-run-or-raise -c "Google-chrome" google-chrome
+bindsym $mod+t exec /home/sainath/i3-wm-config/i3-run-or-raise/bin/i3-run-or-raise -c "Gnome-terminal" gnome-terminal
 
 
 # reload the configuration file
