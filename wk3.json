@@ -8,27 +8,6 @@
     "type": "con",
     "nodes": [
         {
-            "border": "none",
-            "current_border_width": 2,
-            "floating": "user_off",
-            "geometry": {
-               "height": 1080,
-               "width": 3840,
-               "x": 0,
-               "y": 0
-            },
-            "name": "Desktop",
-            "percent": 0.5,
-            "swallows": [
-               {
-                "class": "^Nautilus$",
-                "instance": "^desktop_window$",
-                "title": "^Desktop$"
-               }
-            ],
-            "type": "con"
-        },
-        {
             "border": "pixel",
             "floating": "auto_off",
             "geometry": {
@@ -41,8 +20,26 @@
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^libprs500$",
                 "instance": "^calibre\\-gui$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "floating": "user_off",
+            "geometry": {
+               "height": 1028,
+               "width": 1863,
+               "x": 57,
+               "y": 52
+            },
+            "name": "foobar2000",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Wine$",
+                "instance": "^foobar2000\\.exe$"
                }
             ],
             "type": "con"
