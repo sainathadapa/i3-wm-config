@@ -11,12 +11,12 @@
             "border": "pixel",
             "floating": "auto_off",
             "geometry": {
-               "height": 1055,
+               "height": 1033,
                "width": 1916,
-               "x": 1922,
-               "y": 2
+               "x": 1932,
+               "y": 32
             },
-            "name": "Google Chrome",
+            "name": "RStudio - Google Chrome",
             "percent": 1,
             "swallows": [
                {
