@@ -251,3 +251,5 @@ exec --no-startup-id google-chrome --restore-last-session
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [class="^Wine$" instance="^foobar2000" title="^Main\\ Window\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"] floating disable
+
+
