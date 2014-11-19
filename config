@@ -168,8 +168,8 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Tab move workspace to right
 bindsym $mod+Shift+Tab move container to output right
 
-bindsym $mod+c exec /home/sainath/i3-wm-config/i3-run-or-raise/bin/i3-run-or-raise -c "Google-chrome" google-chrome
-bindsym $mod+t exec /home/sainath/i3-wm-config/i3-run-or-raise/bin/i3-run-or-raise -c "Gnome-terminal" gnome-terminal
+bindsym $mod+c exec /home/sainath/.i3/i3-run-or-raise/bin/i3-run-or-raise -c "Google-chrome" google-chrome
+bindsym $mod+t exec /home/sainath/.i3/i3-run-or-raise/bin/i3-run-or-raise -c "Gnome-terminal" gnome-terminal
 
 
 # reload the configuration file
@@ -197,7 +197,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-		status_command i3blocks -c ~/i3-wm-config/.i3blocks.conf
+		status_command i3blocks -c ~/.i3/i3blocks.conf
 		tray_output primary 
 		position bottom
 		colors{
@@ -217,15 +217,18 @@ bindsym $mod+z scratchpad show
 
 # foobar stuff
 # https://faq.i3wm.org/question/2742/send-key-sequence-to-running-application/
-bindsym Control+Left exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Left'
-bindsym Control+Right exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Right'
+#bindsym Control+Left exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Left'
+#bindsym Control+Right exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Right'
 # bindsym Control+slash exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
-bindsym XF86AudioPlay exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
+#bindsym XF86AudioPlay exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
+
+# media keys
 bindsym XF86Calculator exec gnome-calculator
+bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
 
 # volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +10% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -10% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && pkill -RTMIN+10 i3blocks
 
 
@@ -242,14 +245,15 @@ exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk
 # start applications
 exec --no-startup-id dropbox start
 exec --no-startup-id calibre
-exec --no-startup-id playonlinux --run foobar2000
+#exec --no-startup-id playonlinux --run foobar2000
 exec --no-startup-id gnome-terminal
 exec --no-startup-id nemo --no-desktop
 exec --no-startup-id kate
 exec --no-startup-id google-chrome --restore-last-session
+exec --no-startup-id decibel-audio-player
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
-for_window [class="^Wine$" instance="^foobar2000" title="^Main\\ Window\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"] floating disable
+#for_window [class="^Wine$" instance="^foobar2000" title="^Main\\ Window\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"] floating disable
 
 
