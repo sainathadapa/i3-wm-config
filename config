@@ -258,6 +258,7 @@ exec --no-startup-id kate
 exec --no-startup-id google-chrome --restore-last-session
 exec --no-startup-id decibel-audio-player
 exec --no-startup-id nemo --no-desktop /home/sainath/Dropbox/Music
+exec --no-startup-id rofi -key F12
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
