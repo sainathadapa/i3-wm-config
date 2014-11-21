@@ -26,24 +26,54 @@
             "type": "con"
         },
         {
+            // splith split container with 2 children
             "border": "pixel",
             "floating": "auto_off",
-            "geometry": {
-               "height": 1033,
-               "width": 1916,
-               "x": 2,
-               "y": 23
-            },
-            "name": "Decibel Audio Player",
+            "layout": "splith",
             "percent": 0.5,
-            "swallows": [
-               {
-                "class": "^Decibel\\-audio\\-player\\.py$",
-                "instance": "^decibel\\-audio\\-player\\.py$",
-                "title": "^Decibel\\ Audio\\ Player$"
-               }
-            ],
-            "type": "con"
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1033,
+                       "width": 1916,
+                       "x": 2,
+                       "y": 23
+                    },
+                    "name": "Spanish guitar - El Rio",
+                    "percent": 0.7,
+                    "swallows": [
+                       {
+                        "class": "^Decibel\\-audio\\-player\\.py$",
+                        "instance": "^decibel\\-audio\\-player\\.py$",
+                        "title": "^Spanish\\ guitar\\ \\-\\ El\\ Rio$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1033,
+                       "width": 1916,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Music",
+                    "percent": 0.3,
+                    "swallows": [
+                       {
+                        "class": "^Nemo$",
+                        "instance": "^nemo$",
+                        "title": "^Music$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
         }
     ]
 }

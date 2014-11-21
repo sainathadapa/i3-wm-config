@@ -34,15 +34,10 @@ workspace_layout tabbed
 # where you came from now, you can just press $mod+2 again to switch back to "1: www".
 workspace_auto_back_and_forth yes
 
-# colors
-#client.focused          #3F8AC2 #096BAA #00BAA7 #00DA8E
-#client.focused_inactive #333333 #5F676A #ffffff #484e50
-#client.unfocused        #333333 #424242 #888888 #292d2e
-#client.urgent           #C10004 #900000 #ffffff #900000
-client.focused #1793d0 #1793d0 #ffffff #1793d0
-client.focused_inactive #123456 #123456 #ffffff #123456
-client.unfocused #123456 #123456 #ffffff #123456
-client.urgent #F86A59 #F86A59 #ffffff #000000
+# window (client) colors
+# class                 border  backgr. text    indicator
+client.urgent           #2f343a #ffff00 #000000 #ffff00
+client.focused          #334A5D #334A5D #ffffff #2e9ef4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -182,7 +177,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
-		bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Left resize shrink width 10 px or 10 ppt
 		bindsym Down resize grow height 10 px or 10 ppt
 		bindsym Up resize shrink height 10 px or 10 ppt
 		bindsym Right resize grow width 10 px or 10 ppt
@@ -197,15 +192,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-		status_command i3blocks -c ~/.i3/i3blocks.conf
+	status_command i3blocks -c ~/.i3/i3blocks.conf
 		tray_output primary 
 		position bottom
 		colors{
-			background #000000
-				focused_workspace #000000 #000000 #39b5f2
-				active_workspace #000000 #000000 #ffffff
-				inactive_workspace #000000 #000000 #ffffff
-				urgent_workspace #000000 #000000 #f86a59
+			#	background #000000
+			#	focused_workspace #000000 #000000 #39b5f2
+			#	active_workspace #000000 #000000 #ffffff
+			#	inactive_workspace #000000 #000000 #ffffff
+			#	urgent_workspace #000000 #000000 #f86a59
+
+				background          #1F2326
+				statusline          #aaaaaa
+				focused_workspace   #334A5D     #334A5D     #ffffff
+				inactive_workspace  #222222     #222222     #888888
+				urgent_workspace    #2f343a     #ffff00     #000000
+				#colorclass         <border>    <background> <text>
 		}
 }
 
@@ -214,6 +216,10 @@ bindsym $mod+Shift+z move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+z scratchpad show
+
+# Hides vertical and horizontal borders when there's only one window.
+# Looks neat :)
+hide_edge_borders both
 
 # foobar stuff
 # https://faq.i3wm.org/question/2742/send-key-sequence-to-running-application/
@@ -251,6 +257,7 @@ exec --no-startup-id nemo --no-desktop
 exec --no-startup-id kate
 exec --no-startup-id google-chrome --restore-last-session
 exec --no-startup-id decibel-audio-player
+exec --no-startup-id nemo --no-desktop /home/sainath/Dropbox/Music
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
