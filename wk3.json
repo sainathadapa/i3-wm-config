@@ -1,6 +1,6 @@
 // vim:ts=4:sw=4:et
 {
-    // tabbed split container with 2 children
+    // tabbed split container with 1 children
     "border": "pixel",
     "floating": "auto_off",
     "layout": "tabbed",
@@ -8,29 +8,11 @@
     "type": "con",
     "nodes": [
         {
+            // tabbed split container with 3 children
             "border": "pixel",
             "floating": "auto_off",
-            "geometry": {
-               "height": 740,
-               "width": 1012,
-               "x": 0,
-               "y": 0
-            },
-            "name": "calibre - || Calibre Library ||",
-            "percent": 0.5,
-            "swallows": [
-               {
-                "instance": "^calibre\\-gui$"
-               }
-            ],
-            "type": "con"
-        },
-        {
-            // splith split container with 2 children
-            "border": "pixel",
-            "floating": "auto_off",
-            "layout": "splith",
-            "percent": 0.5,
+            "layout": "tabbed",
+            "percent": 1,
             "type": "con",
             "nodes": [
                 {
@@ -39,16 +21,15 @@
                     "geometry": {
                        "height": 1033,
                        "width": 1916,
-                       "x": 2,
+                       "x": 1922,
                        "y": 23
                     },
-                    "name": "Spanish guitar - El Rio",
-                    "percent": 0.7,
+                    "name": "A.R Rahman [Songs.PK] - Masakali - www.Songs.PK [paused]",
+                    "percent": 0.333333333333333,
                     "swallows": [
                        {
                         "class": "^Decibel\\-audio\\-player\\.py$",
-                        "instance": "^decibel\\-audio\\-player\\.py$",
-                        "title": "^Spanish\\ guitar\\ \\-\\ El\\ Rio$"
+                        "instance": "^decibel\\-audio\\-player\\.py$"
                        }
                     ],
                     "type": "con"
@@ -60,15 +41,34 @@
                        "height": 1033,
                        "width": 1916,
                        "x": 0,
-                       "y": 0
+                       "y": 22
                     },
                     "name": "Music",
-                    "percent": 0.3,
+                    "percent": 0.333333333333333,
                     "swallows": [
                        {
                         "class": "^Nemo$",
                         "instance": "^nemo$",
                         "title": "^Music$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 740,
+                       "width": 1012,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "calibre - || Calibre Library ||",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                        "class": "^libprs500$",
+                        "instance": "^calibre\\-gui$"
                        }
                     ],
                     "type": "con"
