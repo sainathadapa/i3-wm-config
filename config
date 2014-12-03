@@ -176,18 +176,31 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-	bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Left resize shrink width 10 px or 10 ppt
 		bindsym Down resize grow height 10 px or 10 ppt
 		bindsym Up resize shrink height 10 px or 10 ppt
 		bindsym Right resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape
+		# back to normal: Enter or Escape
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+# this also serves as the exhaustive collection of things one can do with workspaces
+mode "workspace" {
+		bindsym Left workspace prev_on_output 
+		bindsym Right workspace next_on_ouput
+		bindsym Down workspace prev
+		bindsym Up workspace next
+
+		# back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+bindsym $mod+q mode "workspace"
+
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
