@@ -61,12 +61,12 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+bindsym F10 exec --no-startup-id i3-dmenu-desktop
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -129,36 +129,36 @@ bindsym $mod+KP_1 workspace number $wk1
 bindsym $mod+KP_2 workspace number $wk2
 bindsym $mod+KP_3 workspace number $wk3
 bindsym $mod+KP_4 workspace number $wk4
-bindsym $mod+KP_5 workspace number 5
-bindsym $mod+KP_6 workspace number 6
-bindsym $mod+KP_7 workspace number 7
-bindsym $mod+KP_8 workspace number 8
+bindsym $mod+KP_5 workspace number $wk5
+bindsym $mod+KP_6 workspace number $wk6
+bindsym $mod+KP_7 workspace number $wk7
+bindsym $mod+KP_8 workspace number $wk8
 bindsym $mod+1 workspace number $wk1
 bindsym $mod+2 workspace number $wk2
 bindsym $mod+3 workspace number $wk3
 bindsym $mod+4 workspace number $wk4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
+bindsym $mod+5 workspace number $wk5
+bindsym $mod+6 workspace number $wk6
+bindsym $mod+7 workspace number $wk7
+bindsym $mod+8 workspace number $wk8
 
 # move focused container to workspace
-bindsym $mod+Shift+KP_1 move container to workspace number 1
-bindsym $mod+Shift+KP_2 move container to workspace number 2
-bindsym $mod+Shift+KP_3 move container to workspace number 3
-bindsym $mod+Shift+KP_4 move container to workspace number 4
-bindsym $mod+Shift+KP_5 move container to workspace number 5
-bindsym $mod+Shift+KP_6 move container to workspace number 6
-bindsym $mod+Shift+KP_7 move container to workspace number 7
-bindsym $mod+Shift+KP_8 move container to workspace number 8
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+KP_1 move container to workspace number $wk1
+bindsym $mod+Shift+KP_2 move container to workspace number $wk2
+bindsym $mod+Shift+KP_3 move container to workspace number $wk3
+bindsym $mod+Shift+KP_4 move container to workspace number $wk4
+bindsym $mod+Shift+KP_5 move container to workspace number $wk5
+bindsym $mod+Shift+KP_6 move container to workspace number $wk6
+bindsym $mod+Shift+KP_7 move container to workspace number $wk7
+bindsym $mod+Shift+KP_8 move container to workspace number $wk8
+bindsym $mod+Shift+1 move container to workspace number $wk1
+bindsym $mod+Shift+2 move container to workspace number $wk2
+bindsym $mod+Shift+3 move container to workspace number $wk3
+bindsym $mod+Shift+4 move container to workspace number $wk4
+bindsym $mod+Shift+5 move container to workspace number $wk5
+bindsym $mod+Shift+6 move container to workspace number $wk6
+bindsym $mod+Shift+7 move container to workspace number $wk7
+bindsym $mod+Shift+8 move container to workspace number $wk8
 
 bindsym $mod+Tab move workspace to right
 bindsym $mod+Shift+Tab move container to output right
@@ -221,13 +221,6 @@ bindsym $mod+z scratchpad show
 # Looks neat :)
 hide_edge_borders both
 
-# foobar stuff
-# https://faq.i3wm.org/question/2742/send-key-sequence-to-running-application/
-#bindsym Control+Left exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Left'
-#bindsym Control+Right exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+Right'
-# bindsym Control+slash exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
-#bindsym XF86AudioPlay exec xdotool key --window $(xdotool search --name foobar2000) 'ctrl+slash'
-
 # media keys
 bindsym XF86Calculator exec gnome-calculator
 bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
@@ -257,11 +250,9 @@ exec --no-startup-id nemo --no-desktop
 exec --no-startup-id kate
 exec --no-startup-id google-chrome --restore-last-session
 exec --no-startup-id decibel-audio-player
-exec --no-startup-id nemo --no-desktop /home/sainath/Dropbox/Music
 exec --no-startup-id rofi -key F12 -rkey F9
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
-#for_window [class="^Wine$" instance="^foobar2000" title="^Main\\ Window\\ \\ \\ \\[foobar2000\\ v1\\.3\\.3\\]$"] floating disable
-
+assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
