@@ -95,10 +95,9 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# change container layout 
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -194,6 +193,14 @@ mode "workspace" {
 		bindsym Down workspace prev
 		bindsym Up workspace next
 
+		bindsym Tab layout toggle all
+
+		bindsym r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
+		bindsym ',' move workspace to output left
+		bindsym '.' move workspace to output right
+
+
 		# back to normal: Enter or Escape
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
@@ -209,12 +216,6 @@ bar {
 		tray_output primary 
 		position bottom
 		colors{
-			#	background #000000
-			#	focused_workspace #000000 #000000 #39b5f2
-			#	active_workspace #000000 #000000 #ffffff
-			#	inactive_workspace #000000 #000000 #ffffff
-			#	urgent_workspace #000000 #000000 #f86a59
-
 				background          #1F2326
 				statusline          #aaaaaa
 				focused_workspace   #334A5D     #334A5D     #ffffff
@@ -231,7 +232,6 @@ bindsym $mod+Shift+z move scratchpad
 bindsym $mod+z scratchpad show
 
 # Hides vertical and horizontal borders when there's only one window.
-# Looks neat :)
 hide_edge_borders both
 
 # media keys
