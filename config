@@ -269,3 +269,7 @@ exec --no-startup-id rofi -key F12 -rkey F9
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
 assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
+# start project-related workspaces
+bindsym $mod+Shift+p exec "i3-msg 'workspace projL; move workspace to output left; append_layout /home/sainath/.i3/projL.json; workspace projR; move workspace to output right; append_layout /home/sainath/.i3/projR.json;'; google-chrome; nemo; gnome-terminal; kate"
+bindsym $mod+p workspace projL; move workspace to output left; workspace projR; move workspace to output right;
+
