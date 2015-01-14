@@ -9,8 +9,8 @@ set $rm DVI-I-1
 # workspace names
 set $wk1 1:One
 set $wk2 2:email
-set $wk3 3:music
-set $wk4 4:Rspace
+set $wk3 3:Three
+set $wk4 4:Four
 set $wk5 5:Five
 set $wk6 6:Six
 set $wk7 7:Seven
@@ -250,14 +250,14 @@ new_window pixel 2
 # load layouts
 exec --no-startup-id "i3-msg 'workspace $wk1; append_layout /home/sainath/.i3/wk1.json; '"
 exec --no-startup-id "i3-msg 'workspace $wk2; append_layout /home/sainath/.i3/wk2.json; '"
-exec --no-startup-id "i3-msg 'workspace $wk3; append_layout /home/sainath/.i3/wk3.json; '"
-exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk4.json; '"
+# exec --no-startup-id "i3-msg 'workspace $wk3; append_layout /home/sainath/.i3/wk3.json; '"
+# exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk4.json; '"
 
 
 # start applications
 exec --no-startup-id dropbox start
-exec --no-startup-id calibre
-#exec --no-startup-id playonlinux --run foobar2000
+exec --no-startup-id calibre --start-in-tray
+# exec --no-startup-id playonlinux --run foobar2000
 exec --no-startup-id gnome-terminal
 exec --no-startup-id nemo --no-desktop
 exec --no-startup-id kate
@@ -271,5 +271,5 @@ assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
 # start project-related workspaces
 bindsym $mod+Shift+p exec "i3-msg 'workspace projL; move workspace to output left; append_layout /home/sainath/.i3/projL.json; workspace projR; move workspace to output right; append_layout /home/sainath/.i3/projR.json;'; google-chrome; nemo; gnome-terminal; kate"
-bindsym $mod+p workspace projL; move workspace to output left; workspace projR; move workspace to output right;
+bindsym $mod+p workspace projL; workspace projR
 
