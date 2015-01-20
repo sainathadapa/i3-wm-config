@@ -262,7 +262,7 @@ exec --no-startup-id gnome-terminal
 exec --no-startup-id nemo --no-desktop
 exec --no-startup-id kate
 exec --no-startup-id google-chrome --restore-last-session
-exec --no-startup-id decibel-audio-player
+# exec --no-startup-id decibel-audio-player
 exec --no-startup-id rofi -key F12 -rkey F9
 
 # specific window settings
