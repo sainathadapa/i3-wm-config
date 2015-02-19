@@ -262,3 +262,7 @@ exec --no-startup-id rofi -key F12 -rkey F9
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
 # assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
+# project workflow bindings
+bindsym $mod+Shift+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/newProjectWorkspaces.js;
+bindsym $mod+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/switchNextProject.js;
+
