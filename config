@@ -7,16 +7,16 @@ set $lm HDMI-0
 set $rm DVI-I-1
 
 # workspace names
-set $wk1 1:One
-set $wk2 2:email
-set $wk3 3:Three
-set $wk4 4:Four
-set $wk5 5:Five
-set $wk6 6:Six
-set $wk7 7:Seven
-set $wk8 8:Eight
-set $wk9 9:Nine
-set $wk0 0:Zero
+# set $wk1 1:One
+# set $wk2 2:email
+# set $wk3 3:Three
+# set $wk4 4:Four
+# set $wk5 5:Five
+# set $wk6 6:Six
+# set $wk7 7:Seven
+# set $wk8 8:Eight
+# set $wk9 9:Nine
+# set $wk0 0:Zero
 
 # hdmi on left and dvi on right
 exec xrandr --output $rm --auto --primary --right-of $lm
@@ -40,15 +40,13 @@ client.urgent           #2f343a #ffff00 #000000 #ffff00
 client.focused          #334A5D #334A5D #ffffff #2e9ef4
 
 # Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:DejaVu Sans Mono 8
 font pango:Ubuntu Sans Mono 10
 
-#turn on mouse following
+# turn on mouse following
 focus_follows_mouse yes
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -61,7 +59,7 @@ bindsym $mod+Return exec gnome-terminal
 bindsym F4 kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -75,10 +73,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+semicolon move right
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -111,60 +109,56 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-#workspace names and outputs
-workspace $wk1 output $lm
-workspace $wk2 output $rm
-workspace $wk3 output $lm
-workspace $wk4 output $rm 
-workspace $wk5 output $lm 
-workspace $wk6 output $rm 
-workspace $wk7 output $lm 
-workspace $wk8 output $rm 
-workspace $wk9 output $lm 
-workspace $wk0 output $rm 
+# workspace names and outputs
+# workspace $wk1 output $lm
+# workspace $wk2 output $rm
+# workspace $wk3 output $lm
+# workspace $wk4 output $rm 
+# workspace $wk5 output $lm 
+# workspace $wk6 output $rm 
+# workspace $wk7 output $lm 
+# workspace $wk8 output $rm 
+# workspace $wk9 output $lm 
+# workspace $wk0 output $rm 
 
 # switch to workspace
-bindsym $mod+KP_1 workspace number $wk1
-bindsym $mod+KP_2 workspace number $wk2
-bindsym $mod+KP_3 workspace number $wk3
-bindsym $mod+KP_4 workspace number $wk4
-bindsym $mod+KP_5 workspace number $wk5
-bindsym $mod+KP_6 workspace number $wk6
-bindsym $mod+KP_7 workspace number $wk7
-bindsym $mod+KP_8 workspace number $wk8
-bindsym $mod+1 workspace number $wk1
-bindsym $mod+2 workspace number $wk2
-bindsym $mod+3 workspace number $wk3
-bindsym $mod+4 workspace number $wk4
-bindsym $mod+5 workspace number $wk5
-bindsym $mod+6 workspace number $wk6
-bindsym $mod+7 workspace number $wk7
-bindsym $mod+8 workspace number $wk8
+bindsym $mod+KP_1 workspace number 1
+bindsym $mod+KP_2 workspace number 2
+bindsym $mod+KP_3 workspace number 3
+bindsym $mod+KP_4 workspace number 4
+bindsym $mod+KP_5 workspace number 5
+bindsym $mod+KP_6 workspace number 6
+bindsym $mod+KP_7 workspace number 7
+bindsym $mod+KP_8 workspace number 8
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
 
 # move focused container to workspace
-bindsym $mod+Shift+KP_1 move container to workspace number $wk1
-bindsym $mod+Shift+KP_2 move container to workspace number $wk2
-bindsym $mod+Shift+KP_3 move container to workspace number $wk3
-bindsym $mod+Shift+KP_4 move container to workspace number $wk4
-bindsym $mod+Shift+KP_5 move container to workspace number $wk5
-bindsym $mod+Shift+KP_6 move container to workspace number $wk6
-bindsym $mod+Shift+KP_7 move container to workspace number $wk7
-bindsym $mod+Shift+KP_8 move container to workspace number $wk8
-bindsym $mod+Shift+1 move container to workspace number $wk1
-bindsym $mod+Shift+2 move container to workspace number $wk2
-bindsym $mod+Shift+3 move container to workspace number $wk3
-bindsym $mod+Shift+4 move container to workspace number $wk4
-bindsym $mod+Shift+5 move container to workspace number $wk5
-bindsym $mod+Shift+6 move container to workspace number $wk6
-bindsym $mod+Shift+7 move container to workspace number $wk7
-bindsym $mod+Shift+8 move container to workspace number $wk8
+bindsym $mod+Shift+KP_1 move container to workspace number 1
+bindsym $mod+Shift+KP_2 move container to workspace number 2
+bindsym $mod+Shift+KP_3 move container to workspace number 3
+bindsym $mod+Shift+KP_4 move container to workspace number 4
+bindsym $mod+Shift+KP_5 move container to workspace number 5
+bindsym $mod+Shift+KP_6 move container to workspace number 6
+bindsym $mod+Shift+KP_7 move container to workspace number 7
+bindsym $mod+Shift+KP_8 move container to workspace number 8
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
 
 bindsym $mod+Tab move workspace to right
 bindsym $mod+Shift+Tab move container to output right
-
-bindsym $mod+c exec /home/sainath/.i3/i3-run-or-raise/bin/i3-run-or-raise -c "Google-chrome" google-chrome
-bindsym $mod+t exec /home/sainath/.i3/i3-run-or-raise/bin/i3-run-or-raise -c "Gnome-terminal" gnome-terminal
-
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -186,7 +180,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# this also serves as the exhaustive collection of things one can do with workspaces
+# this serves as the exhaustive collection of things one can do with workspaces
 mode "workspace" {
 		bindsym Left workspace prev_on_output 
 		bindsym Right workspace next_on_ouput
@@ -205,7 +199,6 @@ mode "workspace" {
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
-bindsym $mod+q mode "workspace"
 
 
 
@@ -236,7 +229,7 @@ hide_edge_borders both
 
 # media keys
 bindsym XF86Calculator exec gnome-calculator
-bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
+# bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
 
 # volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +5% && pkill -RTMIN+10 i3blocks
@@ -267,9 +260,5 @@ exec --no-startup-id rofi -key F12 -rkey F9
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
-assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
-
-# start project-related workspaces
-bindsym $mod+Shift+p exec "i3-msg 'workspace projL; move workspace to output left; append_layout /home/sainath/.i3/projL.json; workspace projR; move workspace to output right; append_layout /home/sainath/.i3/projR.json;'; google-chrome; nemo; gnome-terminal; kate"
-bindsym $mod+p workspace projL; workspace projR
+# assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
