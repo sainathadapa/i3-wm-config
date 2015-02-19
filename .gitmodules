@@ -1,6 +1,3 @@
-[submodule "i3-run-or-raise"]
-	path = i3-run-or-raise
-	url = git@github.com:gustavnikolaj/i3-run-or-raise.git
 [submodule "rofi"]
 	path = rofi
 	url = git@github.com:DaveDavenport/rofi.git
