@@ -241,8 +241,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0
 new_window pixel 2
 
 # load layouts
-exec --no-startup-id "i3-msg 'workspace $wk1; append_layout /home/sainath/.i3/wk1.json; '"
-exec --no-startup-id "i3-msg 'workspace $wk2; append_layout /home/sainath/.i3/wk2.json; '"
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/sainath/.i3/wk1.json; '"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/sainath/.i3/wk2.json; '"
 # exec --no-startup-id "i3-msg 'workspace $wk3; append_layout /home/sainath/.i3/wk3.json; '"
 # exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk4.json; '"
 
