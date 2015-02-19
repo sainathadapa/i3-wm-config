@@ -1,7 +1,7 @@
 'use strict';
 
 var exec = require('child_process').exec,
-	_ = require('lodash');
+_ = require('lodash');
 
 var projectName = process.argv[2];
 
@@ -20,11 +20,14 @@ exec('i3-msg -t get_workspaces', function (error, stdout, stderr) {
 		var oneWKonCurrentOutput = _.filter(wkList, function(x) {
 			return(x.output == allOutputs[i - 1]);
 		});
-		oneWKonCurrentOutput = oneWKonCurrentOutput[0].name;
+
+		if(oneWKonCurrentOutput[0].focused===false) {
+			oneWKonCurrentOutput = oneWKonCurrentOutput[0].name;
+			commandToRun = commandToRun + 'workspace ' + oneWKonCurrentOutput + '; ';
+		}
 
 		var currentWKName = (maxWk + i) + ':' + wkPrefix + '-' + i;
 
-		commandToRun = commandToRun + 'workspace ' + oneWKonCurrentOutput + '; ';
 		commandToRun = commandToRun + 'workspace ' + currentWKName + '; ';
 		commandToRun = commandToRun + 'move workspace ' + currentWKName + ' to output ' + allOutputs[i - 1] + '; ';
 	}
