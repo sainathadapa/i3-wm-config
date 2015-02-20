@@ -1,28 +1,14 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# do 'xrandr -q' to find out the current active displays
+# setting mod variable to windows key
+set $mod Mod4
 
+# hdmi on left and dvi on right
 # set left and right monitor displays
 set $lm HDMI-0 
 set $rm DVI-I-1
-
-# workspace names
-# set $wk1 1:One
-# set $wk2 2:email
-# set $wk3 3:Three
-# set $wk4 4:Four
-# set $wk5 5:Five
-# set $wk6 6:Six
-# set $wk7 7:Seven
-# set $wk8 8:Eight
-# set $wk9 9:Nine
-# set $wk0 0:Zero
-
-# hdmi on left and dvi on right
-exec xrandr --output $rm --auto --primary --right-of $lm
-
-# setting mod variable to windows key
-set $mod Mod4
+exec --no-startup-id xrandr --output $rm --primary --right-of $lm
+exec --no-startup-id i3-msg restart
 
 force_focus_wrapping yes
 
@@ -58,27 +44,18 @@ bindsym $mod+Return exec gnome-terminal
 # kill focused window
 bindsym F4 kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym F10 exec --no-startup-id i3-dmenu-desktop
 
-# alternatively, you can use the cursor keys:
+# change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -94,7 +71,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout 
-bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle all
 
 # toggle tiling / floating
@@ -107,19 +83,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
-
-# workspace names and outputs
-# workspace $wk1 output $lm
-# workspace $wk2 output $rm
-# workspace $wk3 output $lm
-# workspace $wk4 output $rm 
-# workspace $wk5 output $lm 
-# workspace $wk6 output $rm 
-# workspace $wk7 output $lm 
-# workspace $wk8 output $rm 
-# workspace $wk9 output $lm 
-# workspace $wk0 output $rm 
+bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+KP_1 workspace number 1
@@ -130,6 +94,8 @@ bindsym $mod+KP_5 workspace number 5
 bindsym $mod+KP_6 workspace number 6
 bindsym $mod+KP_7 workspace number 7
 bindsym $mod+KP_8 workspace number 8
+bindsym $mod+KP_9 workspace number 9
+bindsym $mod+KP_0 workspace number 10
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -138,6 +104,8 @@ bindsym $mod+5 workspace number 5
 bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
 bindsym $mod+Shift+KP_1 move container to workspace number 1
@@ -148,6 +116,8 @@ bindsym $mod+Shift+KP_5 move container to workspace number 5
 bindsym $mod+Shift+KP_6 move container to workspace number 6
 bindsym $mod+Shift+KP_7 move container to workspace number 7
 bindsym $mod+Shift+KP_8 move container to workspace number 8
+bindsym $mod+Shift+KP_9 move container to workspace number 8
+bindsym $mod+Shift+KP_0 move container to workspace number 8
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -156,9 +126,8 @@ bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
-
-bindsym $mod+Tab move workspace to right
-bindsym $mod+Shift+Tab move container to output right
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -227,6 +196,9 @@ bindsym $mod+z scratchpad show
 # Hides vertical and horizontal borders when there's only one window.
 hide_edge_borders both
 
+# window border size
+new_window pixel 2
+
 # media keys
 bindsym XF86Calculator exec gnome-calculator
 # bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
@@ -237,24 +209,20 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_out
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && pkill -RTMIN+10 i3blocks
 
 
-# window border size
-new_window pixel 2
-
 # load layouts
-exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/sainath/.i3/wk1.json; '"
-exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/sainath/.i3/wk2.json; '"
+# exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/sainath/.i3/wk1.json; '"
+# exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/sainath/.i3/wk2.json; '"
 # exec --no-startup-id "i3-msg 'workspace $wk3; append_layout /home/sainath/.i3/wk3.json; '"
 # exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk4.json; '"
 
-
 # start applications
 exec --no-startup-id dropbox start
-exec --no-startup-id calibre --start-in-tray
+# exec --no-startup-id calibre --start-in-tray
 # exec --no-startup-id playonlinux --run foobar2000
-exec --no-startup-id gnome-terminal
+# exec --no-startup-id gnome-terminal
 exec --no-startup-id nemo --no-desktop
-exec --no-startup-id kate
-exec --no-startup-id google-chrome --restore-last-session
+# exec --no-startup-id kate
+# exec --no-startup-id google-chrome --restore-last-session
 # exec --no-startup-id decibel-audio-player
 exec --no-startup-id rofi -key F12 -rkey F9
 
@@ -265,4 +233,6 @@ for_window [class="Nemo" instance="^desktop_window$"] floating disable
 # project workflow bindings
 bindsym $mod+Shift+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/newProjectWorkspaces.js;
 bindsym $mod+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/switchNextProject.js;
+bindsym $mod+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.js;
+bindsym $mod+Shift+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.js;
 
