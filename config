@@ -23,7 +23,12 @@ workspace_auto_back_and_forth yes
 # window (client) colors
 # class                 border  backgr. text    indicator
 client.urgent           #2f343a #ffff00 #000000 #ffff00
-client.focused          #334A5D #334A5D #ffffff #2e9ef4
+client.focused          #c0392b #c0392b #ffffff #2e9ef4
+
+# default colors
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -194,10 +199,11 @@ bindsym $mod+Shift+z move scratchpad
 bindsym $mod+z scratchpad show
 
 # Hides vertical and horizontal borders when there's only one window.
-hide_edge_borders both
+# hide_edge_borders both
+hide_edge_borders none
 
 # window border size
-new_window pixel 2
+new_window pixel 5
 
 # media keys
 bindsym XF86Calculator exec gnome-calculator
