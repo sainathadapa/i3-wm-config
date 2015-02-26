@@ -235,4 +235,6 @@ bindsym $mod+Shift+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/new
 bindsym $mod+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/switchNextProject.js;
 bindsym $mod+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.js;
 bindsym $mod+Shift+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.js;
+bindsym $mod+Control+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.js;
+bindsym $mod+n exec nodejs /home/sainath/.i3/i3-project-focus-workflow/renameProject.js;
 
