@@ -13,18 +13,18 @@ exec('i3-msg -t get_workspaces', function (error, stdout, stderr) {
 	});
 	currentWK = currentWK[0].name;
 
-	var isCurrentWKOnProj = currentWK.indexOf('proj') > -1;
+	var isCurrentWKOnProj = currentWK.indexOf('★') > -1;
 
 	if (!isCurrentWKOnProj) {
 		return undefined;
 	}
 
-	var re = /^\d+:proj(.*)-\d+$/;
+	var re = /^\d+:★(.*)★\d+$/;
 
 	var currentProj = currentWK.replace(re,'$1');
 
 	var currentProjWKs = _.filter(wkList, function(x) {
-		return (x.name.indexOf('proj' + currentProj) > -1);
+		return (x.name.indexOf('★' + currentProj) > -1);
 	});
 
 	currentProjWKs = _.sortBy(currentProjWKs, function(x) {return x.name;});
