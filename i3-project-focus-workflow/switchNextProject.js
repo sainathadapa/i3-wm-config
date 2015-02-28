@@ -10,17 +10,18 @@ exec('i3-msg -t get_workspaces', function (error, stdout, stderr) {
 
 	var allWKNames = _.pluck(wkList, 'name');
 
-	var re = /^\d+:proj(.*)-\d+$/;
+	var re = /^\d+:★(.*)★\d+$/;
 
 	var allProjs = _.uniq(
 		_.map(
 			_.filter(allWKNames, function(x) {
-		return x.indexOf("proj") > -1;
+		return x.indexOf("★") > -1;
 	}),function(x) {
 		return x.replace(re, '$1');
 	}));
 
 	allProjs = _.sortBy(allProjs, function(x) {return x;}); 
+	console.log(allProjs);
 
 	if(allProjs.length==0) {
 		return undefined;
@@ -32,7 +33,7 @@ exec('i3-msg -t get_workspaces', function (error, stdout, stderr) {
 
 	currentWK = currentWK[0].name;
 
-	var isCurrentWKOnProj = currentWK.indexOf("proj") > -1;
+	var isCurrentWKOnProj = currentWK.indexOf("★") > -1;
 
 	var nextProj;
 
@@ -51,7 +52,7 @@ exec('i3-msg -t get_workspaces', function (error, stdout, stderr) {
 	}
 
 	var wksToFocus = _.filter(allWKNames, function(x) {
-		return (x.indexOf('proj' + nextProj) > -1);
+		return (x.indexOf('★' + nextProj) > -1);
 	});
 
 	var currentWKObj;
@@ -69,7 +70,7 @@ exec('i3-msg -t get_workspaces', function (error, stdout, stderr) {
 		}
 		commandToRun = 'i3-msg "' + commandToRun + '"';
 	}
-	console.log(commandToRun);
+	// console.log(commandToRun);
 
 	exec(commandToRun);
 });

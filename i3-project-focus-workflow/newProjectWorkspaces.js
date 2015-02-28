@@ -28,7 +28,7 @@ var childProc = exec("zenity --entry --title=I3 --text='Start a new project with
 
 		var commandToRun = '';
 
-		var wkPrefix = 'proj' + projectName.toUpperCase();
+		var wkPrefix = '★' + projectName.toUpperCase();
 
 		var focusedWK = _.filter(wkList, function(x) {
 			return (x.focused == true);
@@ -42,7 +42,7 @@ var childProc = exec("zenity --entry --title=I3 --text='Start a new project with
 			// 2. switch to it if it is already not focused
 			// 3. create the new workspace
 
-			var currentWKName = (maxWk + i) + ':' + wkPrefix + '-' + i;
+			var currentWKName = (maxWk + i) + ':' + wkPrefix + '★' + i;
 
 			if ((i != 1) || (oneWKForOneOut[i - 1] != focusedWK)) {
 				commandToRun = commandToRun + 'workspace ' + oneWKForOneOut[i - 1] + '; ';

@@ -19,18 +19,18 @@ var mainFunc = function(error1, stdout1, stderr1) {
 		});
 		currentWK = currentWK[0].name;
 
-		var isCurrentWKOnProj = currentWK.indexOf('proj') > -1;
+		var isCurrentWKOnProj = currentWK.indexOf('★') > -1;
 
 		if (!isCurrentWKOnProj) {
 			return undefined;
 		}
 
-		var re = /^\d+:proj(.*)-\d+$/;
+		var re = /^\d+:★(.*)★\d+$/;
 
 		var currentProj = currentWK.replace(re,'$1');
 
 		var currentProjWKs = _.filter(allWKNames, function(x) {
-			return (x.indexOf('proj' + currentProj) > -1);
+			return (x.indexOf('★' + currentProj) > -1);
 		});
 
 		var newProjWKs = currentProjWKs.map(function(x) {
