@@ -205,7 +205,7 @@ bindsym $mod+z scratchpad show
 hide_edge_borders none
 
 # window border size
-new_window pixel 5
+new_window pixel 3
 
 # media keys
 bindsym XF86Calculator exec gnome-calculator
@@ -224,13 +224,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0
 # exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk4.json; '"
 
 # start applications
-# exec --no-startup-id dropbox start
+exec --no-startup-id dropbox start
 # exec --no-startup-id calibre --start-in-tray
 # exec --no-startup-id playonlinux --run foobar2000
 # exec --no-startup-id gnome-terminal
 # exec --no-startup-id nemo --no-desktop
 # exec --no-startup-id kate
-# exec --no-startup-id google-chrome --restore-last-session
+exec --no-startup-id google-chrome --restore-last-session
 # exec --no-startup-id decibel-audio-player
 exec --no-startup-id rofi -key F12 -rkey F9
 
