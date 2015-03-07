@@ -2,7 +2,7 @@ This repo contains my configuration for I3 window manager.
 
 Notes:
 - $mod key is Mod4 (windows)
-- A project is a set of workspaces with the format - <workspace-number>:★<project-name>★+<somenumber>
+- A project is a set of workspaces with the format - (workspace-number):★(project-name)★(somenumber)
 - i3blocks, rofi, nodejs are prerequisites.
 
 Shortcuts:
