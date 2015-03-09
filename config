@@ -236,6 +236,7 @@ exec --no-startup-id rofi -key F12 -rkey F9
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
+for_window [instance="^crx.*$" window_role="pop-up"] floating enable
 # assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
 # project workflow bindings
