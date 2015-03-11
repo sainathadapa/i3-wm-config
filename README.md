@@ -41,7 +41,7 @@ Shortcuts:
 | $mod+n | Rename current project |
 
 Instructions:
-- git clone --recursive git@github.com:sainathadapa/i3-wm-config.git
+- git clone --recursive git@github.com:sainathadapa/i3-wm-config.git ~/.i3 (Note: backup your i3 config!)
 - Install [rofi](https://davedavenport.github.io/rofi//INSTALL.html)
 - Install [i3blocks](https://github.com/vivien/i3blocks)
 - Install NodeJS and NPM (apt-get install nodejs npm)
