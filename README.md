@@ -1,7 +1,7 @@
 This repo contains my configuration for I3 window manager.
 
 Notes:
-- $mod key is Mod4 (windows)
+- $mod key is Mod4 (windows key on most keyboards)
 - A project is a set of workspaces with the format - (workspace-number):★(project-name)★(somenumber)
 - i3blocks, rofi, nodejs are prerequisites.
 
@@ -40,4 +40,11 @@ Shortcuts:
 | $mod+Control+Tab | Move the focused container to the next workspace of the current project |
 | $mod+n | Rename current project |
 
+Instructions:
+- git clone --recursive git@github.com:sainathadapa/i3-wm-config.git
+- Install [rofi](https://davedavenport.github.io/rofi//INSTALL.html)
+- Install [i3blocks](https://github.com/vivien/i3blocks)
+- Install NodeJS and NPM (apt-get install nodejs npm)
+- cd .i3/i3-project-focus-workflow/; npm install
+- Done!
 
