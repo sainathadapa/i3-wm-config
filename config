@@ -217,12 +217,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_out
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && pkill -RTMIN+10 i3blocks
 
 
-# load layouts
-# exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/sainath/.i3/wk1.json; '"
-# exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/sainath/.i3/wk2.json; '"
-# exec --no-startup-id "i3-msg 'workspace $wk3; append_layout /home/sainath/.i3/wk3.json; '"
-# exec --no-startup-id "i3-msg 'workspace $wk4; append_layout /home/sainath/.i3/wk4.json; '"
-
 # start applications
 exec --no-startup-id dropbox start
 # exec --no-startup-id calibre --start-in-tray
@@ -240,10 +234,10 @@ for_window [instance="^crx.*$" window_role="pop-up"] floating enable
 # assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
 
 # project workflow bindings
-bindsym $mod+Shift+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/newProjectWorkspaces.js;
-bindsym $mod+p exec nodejs /home/sainath/.i3/i3-project-focus-workflow/switchNextProject.js;
-bindsym $mod+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.js;
-bindsym $mod+Shift+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.js;
-bindsym $mod+Control+Tab exec nodejs /home/sainath/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.js;
-bindsym $mod+n exec nodejs /home/sainath/.i3/i3-project-focus-workflow/renameProject.js;
+bindsym $mod+Shift+p exec nodejs ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.js;
+bindsym $mod+p exec nodejs ~/.i3/i3-project-focus-workflow/switchNextProject.js;
+bindsym $mod+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.js;
+bindsym $mod+Shift+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.js;
+bindsym $mod+Control+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.js;
+bindsym $mod+n exec nodejs ~/.i3/i3-project-focus-workflow/renameProject.js;
 
