@@ -1,4 +1,4 @@
-This repo contains my configuration for I3 window manager.
+This repo contains my configuration for [I3 tiling window manager](https://i3wm.org/).
 
 Notes:
 - $mod key is Mod4 (windows key on most keyboards)
