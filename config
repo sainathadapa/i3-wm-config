@@ -21,14 +21,14 @@ workspace_layout tabbed
 workspace_auto_back_and_forth yes
 
 # window (client) colors
-# class                 	border  backgr. text    indicator
+# class                   border  backgr. text    indicator
 # client.urgent           #2f343a #ffff00 #000000 #ffff00
 # client.focused          #c0392b #c0392b #ffffff #2e9ef4
 # client.focused_inactive #333333 #5f676a #ffffff #484e50
 # client.unfocused        #333333 #222222 #888888 #292d2e
 
 client.urgent           #f2c926 #f1c40f #ffffff #ffff00 
-client.focused         	#a569bd #9b59b6 #ffffff #2e9ef4
+client.focused          #a569bd #9b59b6 #ffffff #2e9ef4
 client.focused_inactive #b39cbd #AB92B6 #ffffff #484e50
 client.unfocused        #415161 #2c3e50 #ffffff #292d2e
 
@@ -145,35 +145,35 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-		bindsym Left resize shrink width 10 px or 10 ppt
-		bindsym Down resize grow height 10 px or 10 ppt
-		bindsym Up resize shrink height 10 px or 10 ppt
-		bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-		# back to normal: Enter or Escape
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
 # this serves as the exhaustive collection of things one can do with workspaces
 mode "workspace" {
-		bindsym Left workspace prev_on_output 
-		bindsym Right workspace next_on_ouput
-		bindsym Down workspace prev
-		bindsym Up workspace next
+    bindsym Left workspace prev_on_output 
+    bindsym Right workspace next_on_ouput
+    bindsym Down workspace prev
+    bindsym Up workspace next
 
-		bindsym Tab layout toggle all
+    bindsym Tab layout toggle all
 
-		bindsym r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+    bindsym r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
-		bindsym ',' move workspace to output left
-		bindsym '.' move workspace to output right
+    bindsym ',' move workspace to output left
+    bindsym '.' move workspace to output right
 
 
-		# back to normal: Enter or Escape
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 
@@ -181,17 +181,17 @@ mode "workspace" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3blocks -c ~/.i3/i3blocks.conf
-		tray_output primary 
-		position bottom
-		colors{
-				background          #1F2326
-				statusline          #aaaaaa
-				focused_workspace   #334A5D     #334A5D     #ffffff
-				inactive_workspace  #222222     #222222     #888888
-				urgent_workspace    #2f343a     #ffff00     #000000
-				#colorclass         <border>    <background> <text>
-		}
+  status_command i3blocks -c ~/.i3/i3blocks.conf
+    tray_output primary 
+    position bottom
+    colors{
+        background          #1F2326
+        statusline          #aaaaaa
+        focused_workspace   #334A5D     #334A5D     #ffffff
+        inactive_workspace  #222222     #222222     #888888
+        urgent_workspace    #2f343a     #ffff00     #000000
+        #colorclass         <border>    <background> <text>
+    }
 }
 
 # Make the currently focused window a scratchpad
