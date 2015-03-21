@@ -21,16 +21,16 @@ workspace_layout tabbed
 workspace_auto_back_and_forth yes
 
 # window (client) colors
-# class                 border  backgr. text    indicator
+# class                 	border  backgr. text    indicator
 # client.urgent           #2f343a #ffff00 #000000 #ffff00
 # client.focused          #c0392b #c0392b #ffffff #2e9ef4
 # client.focused_inactive #333333 #5f676a #ffffff #484e50
 # client.unfocused        #333333 #222222 #888888 #292d2e
 
-client.urgent           #f1c40f #f1c40f #ffffff #ffff00 
-client.focused         	#9b59b6 #9b59b6 #ffffff #2e9ef4
-client.focused_inactive #AB92B6 #AB92B6 #ffffff #484e50
-client.unfocused        #2c3e50 #2c3e50 #ffffff #292d2e
+client.urgent           #f2c926 #f1c40f #ffffff #ffff00 
+client.focused         	#a569bd #9b59b6 #ffffff #2e9ef4
+client.focused_inactive #b39cbd #AB92B6 #ffffff #484e50
+client.unfocused        #415161 #2c3e50 #ffffff #292d2e
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
