@@ -170,7 +170,6 @@ mode "workspace" {
     bindsym ',' move workspace to output left
     bindsym '.' move workspace to output right
 
-
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -216,23 +215,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_out
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && pkill -RTMIN+10 i3blocks
 
-
-# start applications
-exec --no-startup-id dropbox start
-# exec --no-startup-id calibre --start-in-tray
-# exec --no-startup-id playonlinux --run foobar2000
-# exec --no-startup-id gnome-terminal
-# exec --no-startup-id nemo --no-desktop
-# exec --no-startup-id kate
-exec --no-startup-id google-chrome --restore-last-session
-# exec --no-startup-id decibel-audio-player
-exec --no-startup-id rofi -key-run F9 -key-window F12
-
-# specific window settings
-for_window [class="Nemo" instance="^desktop_window$"] floating disable
-for_window [instance="^crx.*$" window_role="pop-up"] floating enable
-# assign [class="^libprs500$" instance="^calibre\\-gui$"] → '3:music'
-
 # project workflow bindings
 bindsym $mod+Shift+p exec nodejs ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.js;
 bindsym $mod+p exec nodejs ~/.i3/i3-project-focus-workflow/switchNextProject.js;
@@ -240,4 +222,17 @@ bindsym $mod+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleProjectWorkspa
 bindsym $mod+Shift+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.js;
 bindsym $mod+Control+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.js;
 bindsym $mod+n exec nodejs ~/.i3/i3-project-focus-workflow/renameProject.js;
+
+# create a initial project
+exec --no-startup-id nodejs ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.js email;
+
+# start applications
+exec --no-startup-id dropbox start
+exec --no-startup-id rofi -key-run F9 -key-window F12
+exec --no-startup-id google-chrome --restore-last-session
+exec --no-startup-id nemo --no-desktop
+
+# specific window settings
+for_window [class="Nemo" instance="^desktop_window$"] floating disable
+for_window [instance="^crx.*$" window_role="pop-up"] floating enable # enable floating for chrome extension popups
 
