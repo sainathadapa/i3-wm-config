@@ -3,13 +3,6 @@
 # setting mod variable to windows key
 set $mod Mod4
 
-# hdmi on left and dvi on right
-# set left and right monitor displays
-set $lm HDMI-0 
-set $rm DVI-I-1
-exec --no-startup-id xrandr --output $rm --primary --right-of $lm
-exec --no-startup-id i3-msg restart
-
 force_focus_wrapping yes
 
 # default workspace layout
