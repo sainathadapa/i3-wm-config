@@ -16,5 +16,15 @@ getValidWorkspaceNums = (wkList, num) ->
 getListOfOutputs = (wkList) ->
   _.uniq(_.pluck(wkList, 'output'))
 
+getFocusedWK = (wkList) ->
+  _.filter(wkList, (x) ->
+    return (x.focused == true))[0].name
+  
+getWorkspacesOnOutput = (wkList, outputName) ->
+    filteredObj = _.filter(wkList, (y) ->
+      return (y.output == outputName)
+    )
+    _.pluck(filteredObj, 'name')
+  
 
-module.exports = {getValidWorkspaceNums, getListOfOutputs}
+module.exports = {getValidWorkspaceNums, getListOfOutputs, getFocusedWK, getWorkspacesOnOutput}
