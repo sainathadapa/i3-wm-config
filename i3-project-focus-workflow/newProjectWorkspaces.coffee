@@ -1,10 +1,9 @@
-'use strict'
-
 exec = require('child_process').exec
 _ = require('lodash')
 nf = require('./necessaryFuncs')
 
 mainFunction = (projectName) ->
+  # replace any new line characters
   projectName = projectName.replace(/(\r\n|\n|\r)/gm,'')
 
   if (projectName == undefined || projectName.length == 0)
@@ -16,42 +15,25 @@ mainFunction = (projectName) ->
     allOutputs = nf.getListOfOutputs(wkList)
 
     newWorkspaceNums = nf.getValidWorkspaceNums(wkList, allOutputs.length)
-    console.log(newWorkspaceNums)
-
-    oneWKForOneOut = allOutputs.map((x) ->
-      ans = _.filter(wkList, (y) ->
-        return (y.output == x)
-      )
-      return ans[0].name
-    )
-
-    maxWk = _.max(_.pluck(wkList,'num'))
 
     commandToRun = ''
 
-    wkPrefix = '★' + projectName.toUpperCase()
-
-    focusedWK = _.filter(wkList, (x) ->
-      return (x.focused == true)
-    )
-
-    focusedWK = focusedWK[0].name
+    wkNameProjectPart = '★' + projectName.toUpperCase() + '★'
 
     `
     for (var i = 1; i <= allOutputs.length; i++) {
-      // Steps:
       // 1. find a workspace which is on this output
       // 2. switch to it if it is already not focused
       // 3. create the new workspace
 
-      var currentWKName = (maxWk + i) + ':' + wkPrefix + '★' + i;
+      var currentWKName = newWorkspaceNums[i-1] + ':' + wkNameProjectPart + i;
 
-      var commandToRun;
+      var currentOutputWK = nf.getWorkspacesOnOutput(wkList, allOutputs[i-1])[0];
 
-      if ((i != 1) || (oneWKForOneOut[i - 1] != focusedWK)) {
-        commandToRun = commandToRun + 'workspace ' + oneWKForOneOut[i - 1] + '; ';
+      if( (i != 1) || (currentOutputWK != nf.getFocusedWK(wkList)) ) {
+        commandToRun = commandToRun + 'workspace ' + currentOutputWK + '; ';
       }
-
+      
       commandToRun = commandToRun + 'workspace ' + currentWKName + '; ';
     }
     `
