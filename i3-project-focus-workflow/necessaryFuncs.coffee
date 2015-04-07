@@ -13,4 +13,8 @@ getValidWorkspaceNums = (wkList, num) ->
   else
     return goodWKNums.concat ([(maxWKNum + 1)..(maxWKNum + num - goodWKNums.length)])
 
-module.exports = getValidWorkspaceNums;
+getListOfOutputs = (wkList) ->
+  _.uniq(_.pluck(wkList, 'output'))
+
+
+module.exports = {getValidWorkspaceNums, getListOfOutputs}
