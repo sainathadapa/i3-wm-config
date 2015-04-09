@@ -214,7 +214,7 @@ bindsym $mod+p exec coffee ~/.i3/i3-project-focus-workflow/switchNextProject.cof
 bindsym $mod+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.js;
 bindsym $mod+Shift+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.coffee;
 bindsym $mod+Control+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.js;
-bindsym $mod+n exec nodejs ~/.i3/i3-project-focus-workflow/renameProject.js;
+bindsym $mod+n exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
 
 # create a initial project
 exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee email;
