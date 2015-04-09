@@ -55,6 +55,12 @@ getWKNamesFromProj = (wkList, projName) ->
   wknames = getWKNames(wkList)
   projCorres = _.map(wknames, getProjectFromWKName)
   ansIndices = _.filter([0..(wknames.length-1)], (i) -> projCorres[i]==projName)
-  _.filter(wknames, (v, i) ->_.includes(ansIndices, i))
+  ans = _.filter(wknames, (v, i) ->_.includes(ansIndices, i))
+  _.sortBy(ans, (x) -> x)
 
-module.exports = {getValidWorkspaceNums, getListOfOutputs,getFocusedWK, getWorkspacesOnOutput,getListOfProjects,getWKNames,getProjectFromWKName,getWKNamesFromProj,getVisibleWKs}
+getOutputForWK = (wkList, wkName) ->
+  thiswk = _.filter(wkList, (x) -> x.name == wkName)[0]
+  thiswk.output
+
+
+module.exports = {getValidWorkspaceNums, getListOfOutputs,getFocusedWK, getWorkspacesOnOutput,getListOfProjects,getWKNames,getProjectFromWKName,getWKNamesFromProj,getVisibleWKs,getOutputForWK}
