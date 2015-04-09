@@ -211,9 +211,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0
 # project workflow bindings
 bindsym $mod+Shift+p exec coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee;
 bindsym $mod+p exec coffee ~/.i3/i3-project-focus-workflow/switchNextProject.coffee;
-bindsym $mod+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.js;
+bindsym $mod+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.coffee;
 bindsym $mod+Shift+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.coffee;
-bindsym $mod+Control+Tab exec nodejs ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.js;
+bindsym $mod+Control+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.coffee;
 bindsym $mod+n exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
 
 # create a initial project
