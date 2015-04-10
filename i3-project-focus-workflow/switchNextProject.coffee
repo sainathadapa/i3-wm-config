@@ -7,18 +7,22 @@ exec('i3-msg -t get_workspaces', (error, stdout, stderr) ->
   
   focWkName = nf.getFocusedWK(wkList)
 
+  allProjectNames = nf.getListOfProjects(wkList)
+  
+  if allProjectNames.length == 0 || allProjectNames == undefined
+    process.exit()
+
   currentProjName = nf.getProjectFromWKName(focWkName)
 
-  allProjectNames = nf.getListOfProjects(wkList)
-
-  nextProjIndex = allProjectNames.indexOf(currentProjName)
-
-  if nextProjIndex == -1
-    return undefined
-  if nextProjIndex == (allProjectNames.length-1)
+  if currentProjName == undefined
     nextProjIndex = 0
   else
-    nextProjIndex += 1
+    nextProjIndex = allProjectNames.indexOf(currentProjName)
+
+    if nextProjIndex == (allProjectNames.length-1)
+      nextProjIndex = 0
+    else
+      nextProjIndex += 1
 
   nxtProjWks = nf.getWKNamesFromProj(wkList, allProjectNames[nextProjIndex])
 
