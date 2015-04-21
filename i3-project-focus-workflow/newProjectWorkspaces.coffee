@@ -43,7 +43,7 @@ mainFunction = (projectName) ->
     # exec('zenity --notification --text=' + JSON.stringify(commandToRun))
     # console.log(commandToRun)
 
-    exec(commandToRun)
+    exec commandToRun
   )
 
 if(process.argv[2]==undefined)
