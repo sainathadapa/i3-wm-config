@@ -39,7 +39,7 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec pantheon-terminal
 
 # kill focused window
 bindsym F4 kill
@@ -221,7 +221,7 @@ exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces
 
 # start applications
 exec --no-startup-id dropbox start
-exec --no-startup-id rofi -key-run F9 -key-window F12
+exec --no-startup-id rofi -rkey F9 -key F12
 exec --no-startup-id google-chrome --restore-last-session
 exec --no-startup-id nemo --no-desktop
 exec --no-startup-id numlockx on
