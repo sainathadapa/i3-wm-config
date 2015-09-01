@@ -2,18 +2,23 @@
 - Install NodeJS, NPM and Coffeescript (apt-get install nodejs npm coffeescript)
 - cd .i3/i3-project-focus-workflow/; npm install
 - Bind the scripts to shortcut keys in the I3 config file
+
 # Usage
 - A project is defined as a set of workspaces, one workspace for each display/monitor available.
-- To create a new project, run newProjectWorkspaces.coffee script. This will display a dialog box asking for the project name. Names of the workspaces will contain these workspaces.
+- To create a new project, run newProjectWorkspaces.coffee script. This will display a dialog box asking for the project name. Names of the workspaces will contain the project name.
 
+Dialog box:
 ![New project dialog box](../img/new_project_dialog.png)
 
+After:
 ![New set of workspaces](../img/new_project_after.png)
 
 - To rename a project, run renameProject.coffee. This will display a dialog box asking for the new project name.
 
+Dialog box:
 ![Rename project dialog box](../img/rename_project_dialog.png)
 
+After:
 ![After rename](../img/rename_project_after.png)
 
 - To switch to the next project, run switchNextProject.coffee
