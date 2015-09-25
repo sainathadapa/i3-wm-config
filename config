@@ -199,6 +199,9 @@ hide_edge_borders none
 # window border size
 new_window pixel 3
 
+# Lock the system
+bindsym $mod+l exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
+
 # media keys
 # bindsym XF86Calculator exec gnome-calculator
 # bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
