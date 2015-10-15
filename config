@@ -230,7 +230,18 @@ exec --no-startup-id google-chrome --restore-last-session
 exec --no-startup-id nemo --no-desktop
 exec --no-startup-id numlockx on
 
+popup_during_fullscreen leave_fullscreen
+show_marks yes
+
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
-for_window [instance="^crx.*$" window_role="pop-up"] floating enable # enable floating for chrome extension popups
+for_window [instance="^crx.*$" window_role="pop-up"] floating enable # chrome extension popups
+for_window [instance="^crx.*$" window_role="pop-up"] sticky enable # chrome extension popups
+for_window [class="^Firefox$"] title_format "Ғ %title"
+for_window [class="^Google-chrome$"] title_format "© %title"
+for_window [class="^Gnome-terminal$"] title_format "Ŧ %title"
+for_window [class="^Gvim$"] title_format "Ʋ %title"
+for_window [class="^Nemo$"] title_format "Ʃ %title"
+for_window [class="^Slack$"] title_format "Ś %title"
+
 
