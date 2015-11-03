@@ -239,6 +239,7 @@ for_window [instance="^crx.*$" window_role="pop-up"] floating enable # chrome ex
 for_window [instance="^crx.*$" window_role="pop-up"] sticky enable # chrome extension popups
 for_window [class="^Firefox$"] title_format "Ғ %title"
 for_window [class="^Google-chrome$"] title_format "© %title"
+for_window [class="^google-chrome$"] title_format "© %title"
 for_window [class="^Gnome-terminal$"] title_format "Ŧ %title"
 for_window [class="^Gvim$"] title_format "Ʋ %title"
 for_window [class="^Nemo$"] title_format "Ʃ %title"
