@@ -7,3 +7,6 @@
 [submodule "i3-project-focus-workflow"]
 	path = i3-project-focus-workflow
 	url = git@github.com:sainathadapa/i3-project-focus-workflow.git
+[submodule "i3blocks-contrib"]
+	path = i3blocks-contrib
+	url = git@github.com:vivien/i3blocks-contrib.git
