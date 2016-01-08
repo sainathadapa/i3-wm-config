@@ -6,7 +6,7 @@ set $mod Mod4
 force_focus_wrapping yes
 
 # default workspace layout
-workspace_layout tabbed
+workspace_layout stacking
 
 # Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
 # because somebody sent you a message. You don’t need to remember 
@@ -176,7 +176,7 @@ mode "workspace" {
 bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_output primary 
-    position bottom
+    position top
     colors{
         background          #1F2326
         statusline          #aaaaaa
@@ -226,8 +226,6 @@ exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces
 # start applications
 exec --no-startup-id dropbox start
 exec --no-startup-id rofi -key-run F9 -key-window F12
-exec --no-startup-id google-chrome --restore-last-session
-exec --no-startup-id nemo --no-desktop
 exec --no-startup-id numlockx on
 
 popup_during_fullscreen leave_fullscreen
@@ -237,12 +235,11 @@ show_marks yes
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [instance="^crx.*$" window_role="pop-up"] floating enable # chrome extension popups
 for_window [instance="^crx.*$" window_role="pop-up"] sticky enable # chrome extension popups
-for_window [class="^Firefox$"] title_format "Ғ %title"
-for_window [class="^Google-chrome$"] title_format "© %title"
-for_window [class="^google-chrome$"] title_format "© %title"
-for_window [class="^Gnome-terminal$"] title_format "Ŧ %title"
-for_window [class="^Gvim$"] title_format "Ʋ %title"
-for_window [class="^Nemo$"] title_format "Ʃ %title"
-for_window [class="^Slack$"] title_format "Ś %title"
-
+for_window [class="^Firefox$"] title_format "Ғirefox | %title"
+for_window [class="^Google-chrome$"] title_format "©hrome | %title"
+for_window [class="^google-chrome$"] title_format "©hrome | %title"
+for_window [class="^Gnome-terminal$"] title_format "Ŧerminal | %title"
+for_window [class="^Gvim$"] title_format "Ʋim | %title"
+for_window [class="^Nemo$"] title_format "Ʃxplorer | %title"
+for_window [class="^Slack$"] title_format "Ślack | %title"
 
