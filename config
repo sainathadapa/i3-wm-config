@@ -94,16 +94,16 @@ bindsym $mod+KP_7 workspace number 7
 bindsym $mod+KP_8 workspace number 8
 bindsym $mod+KP_9 workspace number 9
 bindsym $mod+KP_0 workspace number 0
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 0
+bindsym $mod+1    workspace number 1
+bindsym $mod+2    workspace number 2
+bindsym $mod+3    workspace number 3
+bindsym $mod+4    workspace number 4
+bindsym $mod+5    workspace number 5
+bindsym $mod+6    workspace number 6
+bindsym $mod+7    workspace number 7
+bindsym $mod+8    workspace number 8
+bindsym $mod+9    workspace number 9
+bindsym $mod+0    workspace number 0
 
 # move focused container to workspace
 bindsym $mod+Shift+KP_1 move container to workspace number 1
@@ -116,16 +116,16 @@ bindsym $mod+Shift+KP_7 move container to workspace number 7
 bindsym $mod+Shift+KP_8 move container to workspace number 8
 bindsym $mod+Shift+KP_9 move container to workspace number 8
 bindsym $mod+Shift+KP_0 move container to workspace number 8
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 0
+bindsym $mod+Shift+1    move container to workspace number 1
+bindsym $mod+Shift+2    move container to workspace number 2
+bindsym $mod+Shift+3    move container to workspace number 3
+bindsym $mod+Shift+4    move container to workspace number 4
+bindsym $mod+Shift+5    move container to workspace number 5
+bindsym $mod+Shift+6    move container to workspace number 6
+bindsym $mod+Shift+7    move container to workspace number 7
+bindsym $mod+Shift+8    move container to workspace number 8
+bindsym $mod+Shift+9    move container to workspace number 9
+bindsym $mod+Shift+0    move container to workspace number 0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -136,10 +136,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left   resize shrink width 10 px or 10 ppt
+    bindsym Down   resize grow height 10 px or 10 ppt
+    bindsym Up     resize shrink height 10 px or 10 ppt
+    bindsym Right  resize grow width 10 px or 10 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -149,17 +149,17 @@ bindsym $mod+r mode "resize"
 
 # this serves as the exhaustive collection of things one can do with workspaces
 mode "workspace" {
-    bindsym Left workspace prev_on_output 
-    bindsym Right workspace next_on_ouput
-    bindsym Down workspace prev
-    bindsym Up workspace next
+    bindsym Left   workspace prev_on_output
+    bindsym Right  workspace next_on_ouput
+    bindsym Down   workspace prev
+    bindsym Up     workspace next
 
-    bindsym Tab layout toggle all
+    bindsym Tab    layout toggle all
 
-    bindsym r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+    bindsym r      exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
-    bindsym ',' move workspace to output left
-    bindsym '.' move workspace to output right
+    bindsym ','    move workspace to output left
+    bindsym '.'    move workspace to output right
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -199,22 +199,20 @@ new_window pixel 3
 # Lock the system
 bindsym $mod+l exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
 
-# media keys
-# bindsym XF86Calculator exec gnome-calculator
-# bindsym XF86AudioPlay exec python /usr/share/decibel-audio-player/src/remote.py pause
-
-# volume control
+# special keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -- +5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -- -5% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioPlay        exec --no-startup-id ~/.i3/player-control.sh vlc toggle
+bindsym XF86Calculator       exec --no-startup-id gnome-calculator
 
 # project workflow bindings
-bindsym $mod+Shift+p exec coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee;
-bindsym $mod+p exec coffee ~/.i3/i3-project-focus-workflow/switchNextProject.coffee;
-bindsym $mod+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.coffee;
-bindsym $mod+Shift+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.coffee;
-bindsym $mod+Control+Tab exec coffee ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.coffee;
-bindsym $mod+n exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
+bindsym $mod+Shift+p         exec coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee;
+bindsym $mod+p               exec coffee ~/.i3/i3-project-focus-workflow/switchNextProject.coffee;
+bindsym $mod+Tab             exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.coffee;
+bindsym $mod+Shift+Tab       exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.coffee;
+bindsym $mod+Control+Tab     exec coffee ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.coffee;
+bindsym $mod+n               exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
 
 # create a initial project
 exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee default;
@@ -229,16 +227,21 @@ show_marks yes
 
 # specific window settings
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
-for_window [instance="^crx.*$" window_role="pop-up"] floating enable # chrome extension popups
-for_window [instance="^crx.*$" window_role="pop-up"] sticky enable # chrome extension popups
-for_window [class="^Firefox$"] title_format             "Firefox ........ %title"
-for_window [class="^Google-chrome$"] title_format       "Chrome ......... %title"
-for_window [class="^google-chrome$"] title_format       "Chrome ......... %title"
-for_window [class="^Gnome-terminal$"] title_format      "Terminal ....... %title"
-for_window [class="^Gvim$"] title_format                "Vim ............ %title"
-for_window [class="^Nemo$"] title_format                "Nemo ........... %title"
-for_window [class="^Emacs$"] title_format               "Emacs .......... %title"
-for_window [class="^chromium-browser$"] title_format    "Chromium ....... %title"
+
+# chrome extension popups
+for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
+for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
+
+for_window [class="^Emacs$"]               title_format "Emacs .......... %title"
+for_window [class="^Firefox$"]             title_format "Firefox ........ %title"
+for_window [class="^Gnome-terminal$"]      title_format "Terminal ....... %title"
+for_window [class="^Google-chrome$"]       title_format "Chrome ......... %title"
+for_window [class="^Gvim$"]                title_format "Vim ............ %title"
+for_window [class="^Nemo$"]                title_format "Nemo ........... %title"
+for_window [class="^Terminator$"]          title_format "Terminal ....... %title"
+for_window [class="^Vlc$"]                 title_format "VLC ............ %title"
+for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title"
+for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
 for_window [class="^RStudio$"] title_format             "RStudio ........ %title"
 
