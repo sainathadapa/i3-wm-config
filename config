@@ -235,11 +235,12 @@ show_marks yes
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [instance="^crx.*$" window_role="pop-up"] floating enable # chrome extension popups
 for_window [instance="^crx.*$" window_role="pop-up"] sticky enable # chrome extension popups
-for_window [class="^Firefox$"] title_format        "Firefox ...... %title"
-for_window [class="^Google-chrome$"] title_format  "Chrome ....... %title"
-for_window [class="^google-chrome$"] title_format  "Chrome ....... %title"
-for_window [class="^Gnome-terminal$"] title_format "Terminal ..... %title"
-for_window [class="^Gvim$"] title_format           "Vim .......... %title"
-for_window [class="^Nemo$"] title_format           "Nemo ......... %title"
-for_window [class="^Emacs$"] title_format          "Emacs ........ %title"
-
+for_window [class="^Firefox$"] title_format             "Firefox ........ %title"
+for_window [class="^Google-chrome$"] title_format       "Chrome ......... %title"
+for_window [class="^google-chrome$"] title_format       "Chrome ......... %title"
+for_window [class="^Gnome-terminal$"] title_format      "Terminal ....... %title"
+for_window [class="^Gvim$"] title_format                "Vim ............ %title"
+for_window [class="^Nemo$"] title_format                "Nemo ........... %title"
+for_window [class="^Emacs$"] title_format               "Emacs .......... %title"
+for_window [class="^chromium-browser$"] title_format    "Chromium ....... %title"
+for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
