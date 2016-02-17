@@ -243,5 +243,5 @@ for_window [class="^Vlc$"]                 title_format "VLC ............ %title
 for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title"
 for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
-for_window [class="^RStudio$"] title_format             "RStudio ........ %title"
-
+for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
+for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"
