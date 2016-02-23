@@ -225,7 +225,7 @@ exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces
 
 # start applications
 exec --no-startup-id dropbox start
-exec --no-startup-id rofi -key-run F9 -key-window F12
+exec --no-startup-id rofi -key-run F9 -key-window F12 -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699"
 exec --no-startup-id numlockx on
 
 popup_during_fullscreen leave_fullscreen
