@@ -221,6 +221,8 @@ exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces
 exec --no-startup-id dropbox start
 exec --no-startup-id rofi -key-run F9 -key-window F12 -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699"
 exec --no-startup-id numlockx on
+exec --no-startup-id clipit
+exec --no-startup-id google-chrome
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
