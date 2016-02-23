@@ -244,3 +244,4 @@ for_window [class="^Nemo$"] title_format                "Nemo ........... %title
 for_window [class="^Emacs$"] title_format               "Emacs .......... %title"
 for_window [class="^chromium-browser$"] title_format    "Chromium ....... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
+for_window [class="^RStudio$"] title_format             "RStudio ........ %title"
