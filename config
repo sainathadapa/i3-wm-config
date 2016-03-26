@@ -214,7 +214,7 @@ bindsym $mod+Control+Tab     exec coffee ~/.i3/i3-project-focus-workflow/cycleCo
 bindsym $mod+n               exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
 
 # create a initial project
-exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee default;
+exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee gen;
 
 # start applications
 exec --no-startup-id dropbox start
