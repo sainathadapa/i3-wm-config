@@ -25,7 +25,7 @@ client.urgent           #2f343a #900000 #ffffff #900000
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 8
-font pango:Hack 10
+font pango:Source Code Pro 10
 
 # turn on mouse following
 focus_follows_mouse yes
