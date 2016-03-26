@@ -172,15 +172,14 @@ bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_output primary 
     position top
-  colors {
-    separator          #666666
-    background         #222222
-    statusline         #dddddd
-    focused_workspace  #0088CC #0088CC #ffffff
-    active_workspace   #333333 #333333 #ffffff
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace   #2f343a #900000 #ffffff
-  }
+    colors{
+        background          #1F2326
+        statusline          #aaaaaa
+        focused_workspace   #334A5D     #334A5D     #ffffff
+        inactive_workspace  #222222     #222222     #888888
+        urgent_workspace    #2f343a     #ffff00     #000000
+        #colorclass         <border>    <background> <text>
+    }
 }
 
 # Make the currently focused window a scratchpad
