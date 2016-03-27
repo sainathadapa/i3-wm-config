@@ -172,13 +172,14 @@ bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_output primary 
     position top
-    colors{
-        background          #1F2326
-        statusline          #aaaaaa
-        focused_workspace   #334A5D     #334A5D     #ffffff
-        inactive_workspace  #222222     #222222     #888888
-        urgent_workspace    #2f343a     #ffff00     #000000
-        #colorclass         <border>    <background> <text>
+    colors {
+      separator          #666666
+        background         #222222
+        statusline         #dddddd
+        focused_workspace  #0088CC #0088CC #ffffff
+        active_workspace   #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
     }
 }
 
@@ -193,7 +194,7 @@ bindsym $mod+z scratchpad show
 hide_edge_borders none
 
 # window border size
-new_window pixel 3
+new_window pixel 1
 
 # Lock the system
 bindsym $mod+l exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
@@ -247,3 +248,4 @@ for_window [class="^google-chrome$"]       title_format "Chrome ......... %title
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
 for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
 for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"
+
