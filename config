@@ -14,16 +14,11 @@ workspace_layout stacking
 workspace_auto_back_and_forth yes
 
 # window (client) colors
-# class                   border  backgr. text    indicator
-# client.urgent           #2f343a #ffff00 #000000 #ffff00
-# client.focused          #c0392b #c0392b #ffffff #2e9ef4
-# client.focused_inactive #333333 #5f676a #ffffff #484e50
-# client.unfocused        #333333 #222222 #888888 #292d2e
-
-client.urgent           #f2c926 #f1c40f #ffffff #ffff00 
-client.focused          #a569bd #9b59b6 #ffffff #2e9ef4
-client.focused_inactive #b39cbd #AB92B6 #ffffff #484e50
-client.unfocused        #415161 #2c3e50 #ffffff #292d2e
+# class                 border  backgr. text    indicator
+client.focused          #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused        #333333 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -177,14 +172,15 @@ bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_output primary 
     position top
-    colors{
-        background          #1F2326
-        statusline          #aaaaaa
-        focused_workspace   #334A5D     #334A5D     #ffffff
-        inactive_workspace  #222222     #222222     #888888
-        urgent_workspace    #2f343a     #ffff00     #000000
-        #colorclass         <border>    <background> <text>
-    }
+  colors {
+    separator          #666666
+    background         #222222
+    statusline         #dddddd
+    focused_workspace  #0088CC #0088CC #ffffff
+    active_workspace   #333333 #333333 #ffffff
+    inactive_workspace #333333 #333333 #888888
+    urgent_workspace   #2f343a #900000 #ffffff
+  }
 }
 
 # Make the currently focused window a scratchpad
@@ -245,3 +241,4 @@ for_window [class="^Emacs$"] title_format               "Emacs .......... %title
 for_window [class="^chromium-browser$"] title_format    "Chromium ....... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
 for_window [class="^RStudio$"] title_format             "RStudio ........ %title"
+
