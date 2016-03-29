@@ -1,3 +1,4 @@
+#!/bin/bash
 currentDesk=$(xdotool get_desktop)
 awkArgs="'\$2 == \"$currentDesk\" {print \$3}'"
 getNumWindows="wmctrl -l | awk ${awkArgs} | wc -l"
