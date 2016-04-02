@@ -216,8 +216,9 @@ bindsym $mod+Shift+Tab       exec coffee ~/.i3/i3-project-focus-workflow/cyclePr
 bindsym $mod+Control+Tab     exec coffee ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.coffee;
 bindsym $mod+n               exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
 
-# create a initial project
+# create initial workspaces
 exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee gen;
+exec i3-msg 'workspace 1:★MUSIC★1; append_layout ~/.i3/music_wk.json'
 
 # start applications
 exec --no-startup-id google-chrome
