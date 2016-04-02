@@ -1,1 +1,3 @@
 i3-project-focus-workflow/node_modules/*
+.Rproj.user
+*.Rproj
