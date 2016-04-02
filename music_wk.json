@@ -1,0 +1,50 @@
+// vim:ts=4:sw=4:et
+{
+    // stacked split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+                "height": 989,
+                "width": 1918,
+                "x": 0,
+                "y": 0
+            },
+            "name": "Volume Control",
+            "percent": 0.5,
+            "swallows": [
+                {
+                    "class": "^Pavucontrol$"
+                }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+                "height": 967,
+                "width": 1918,
+                "x": 0,
+                "y": 112
+            },
+            "name": "Audacious",
+            "percent": 0.5,
+            "swallows": [
+                {
+                    "class": "^Audacious$"
+                }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
