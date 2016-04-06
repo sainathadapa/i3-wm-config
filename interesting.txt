@@ -1,0 +1,17 @@
+# I like tty-clock stickied..
+  bindsym $mod+shift+z exec "terminal -geometry 35x9+1020+580 -e tty-clock -b -c -C 4 -D"
+  for_window [title="tty-clock"] floating enable sticky enable border pixel $borders
+
+# start a floating terminal..
+  bindsym mod1+shift+t exec --no-startup-id terminal -geometry 80x26 -name "floating_urxvt"
+  for_window [class="URxvt" instance="floating_urxvt$"] floating toggle
+
+# fullscreen videos to small sticky in corner..
+  bindsym mod1+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
+
+
+# "Super put":  This types out whatever is in the clipboard as if it had been
+# typed at the keyboard by a human.
+bindsym --release $mod+p exec sleep 1 && xdotool type --clearmodifiers `xclip -selection c -out`
+
+
