@@ -6,7 +6,7 @@ set $mod Mod4
 force_focus_wrapping yes
 
 # default workspace layout
-workspace_layout stacking
+workspace_layout tabbed
 
 # Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
 # because somebody sent you a message. You don’t need to remember 
@@ -298,15 +298,15 @@ bindsym XF86AudioNext        exec --no-startup-id ~/.i3/player-control.sh audaci
 bindsym XF86Calculator       exec --no-startup-id gnome-calculator
 
 # project workflow bindings
-bindsym $mod+Shift+p         exec coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee;
-bindsym $mod+p               exec coffee ~/.i3/i3-project-focus-workflow/switchNextProject.coffee;
-bindsym $mod+Tab             exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.coffee;
-bindsym $mod+Shift+Tab       exec coffee ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.coffee;
-bindsym $mod+Control+Tab     exec coffee ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.coffee;
-bindsym $mod+n               exec coffee ~/.i3/i3-project-focus-workflow/renameProject.coffee;
+bindsym $mod+Shift+p         exec ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py
+bindsym $mod+p               exec ~/.i3/i3-project-focus-workflow/switchNextProject.py
+bindsym $mod+Tab             exec ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesFocus.py
+bindsym $mod+Shift+Tab       exec ~/.i3/i3-project-focus-workflow/cycleProjectWorkspacesOutput.py
+bindsym $mod+Control+Tab     exec ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.py
+bindsym $mod+n               exec ~/.i3/i3-project-focus-workflow/renameProject.py
 
 # create initial workspaces
-exec --no-startup-id coffee ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.coffee gen;
+exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py gen
 exec i3-msg 'workspace 1:★MUSIC★1; append_layout ~/.i3/music_wk.json'
 
 # start applications
