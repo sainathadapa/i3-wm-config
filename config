@@ -305,13 +305,17 @@ bindsym $mod+Shift+Tab       exec ~/.i3/i3-project-focus-workflow/cycleProjectWo
 bindsym $mod+Control+Tab     exec ~/.i3/i3-project-focus-workflow/cycleContainerProjectWorkspaces.py
 bindsym $mod+n               exec ~/.i3/i3-project-focus-workflow/renameProject.py
 
+# rofi bindings
+bindsym F9 exec rofi -show run -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+
+
 # create initial workspaces
 exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py gen
 exec i3-msg 'workspace 1:★MUSIC★1; append_layout ~/.i3/music_wk.json'
 
 # start applications
 exec --no-startup-id google-chrome
-exec --no-startup-id rofi -key-run F9 -key-window F12 -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699"
 exec --no-startup-id numlockx on
 exec --no-startup-id clipit
 exec --no-startup-id dropbox start
