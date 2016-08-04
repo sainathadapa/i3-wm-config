@@ -12,38 +12,67 @@
             "current_border_width": 1,
             "floating": "auto_off",
             "geometry": {
-                "height": 989,
-                "width": 1918,
-                "x": 0,
-                "y": 0
+                "height": 600,
+                "width": 800,
+                "x": 560,
+                "y": 240
             },
-            "name": "Volume Control",
+            "name": "Sound",
             "percent": 0.5,
             "swallows": [
                 {
-                    "class": "^Pavucontrol$"
+                    "class": "^Cinnamon\\-settings\\.py$"
                 }
             ],
             "type": "con"
         },
         {
+            // splith split container with 2 children
             "border": "pixel",
-            "current_border_width": 1,
             "floating": "auto_off",
-            "geometry": {
-                "height": 967,
-                "width": 1918,
-                "x": 0,
-                "y": 112
-            },
-            "name": "Audacious",
+            "layout": "splith",
             "percent": 0.5,
-            "swallows": [
+            "type": "con",
+            "nodes": [
                 {
-                    "class": "^Audacious$"
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 1027,
+                        "width": 926,
+                        "x": 0,
+                        "y": 0
+                    },
+                    "name": "OST",
+                    "percent": 0.5,
+                    "swallows": [
+                        {
+                            "class": "^Nemo$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 1034,
+                        "width": 1918,
+                        "x": 0,
+                        "y": 45
+                    },
+                    "name": "vlc",
+                    "percent": 0.5,
+                    "swallows": [
+                        {
+                            "class": "vlc"
+                        }
+                    ],
+                    "type": "con"
                 }
-            ],
-            "type": "con"
+            ]
         }
     ]
 }
