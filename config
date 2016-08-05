@@ -311,8 +311,8 @@ bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -
 
 
 # create initial workspaces
-exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py gen
-exec i3-msg 'workspace 1:★MUSIC★1; append_layout ~/.i3/music_wk.json'
+exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
+exec i3-msg 'workspace 1:★music★1; append_layout ~/.i3/music_wk.json'
 
 # start applications
 exec --no-startup-id google-chrome
