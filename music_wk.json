@@ -1,6 +1,4 @@
-// vim:ts=4:sw=4:et
 {
-    // stacked split container with 2 children
     "border": "pixel",
     "floating": "auto_off",
     "layout": "stacked",
@@ -27,52 +25,23 @@
             "type": "con"
         },
         {
-            // splith split container with 2 children
             "border": "pixel",
+            "current_border_width": 1,
             "floating": "auto_off",
-            "layout": "splith",
+            "geometry": {
+                "height": 685,
+                "width": 1131,
+                "x": 0,
+                "y": 0
+            },
+            "name": "clementine",
             "percent": 0.5,
-            "type": "con",
-            "nodes": [
+            "swallows": [
                 {
-                    "border": "pixel",
-                    "current_border_width": 1,
-                    "floating": "auto_off",
-                    "geometry": {
-                        "height": 1027,
-                        "width": 926,
-                        "x": 0,
-                        "y": 0
-                    },
-                    "name": "OST",
-                    "percent": 0.5,
-                    "swallows": [
-                        {
-                            "class": "^Nemo$"
-                        }
-                    ],
-                    "type": "con"
-                },
-                {
-                    "border": "pixel",
-                    "current_border_width": 1,
-                    "floating": "auto_off",
-                    "geometry": {
-                        "height": 1034,
-                        "width": 1918,
-                        "x": 0,
-                        "y": 45
-                    },
-                    "name": "vlc",
-                    "percent": 0.5,
-                    "swallows": [
-                        {
-                            "class": "vlc"
-                        }
-                    ],
-                    "type": "con"
+                    "class": "^Clementine$"
                 }
-            ]
+            ],
+            "type": "con"
         }
     ]
 }
