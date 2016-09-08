@@ -10,8 +10,6 @@ Instructions:
 - git clone --recursive git@github.com:sainathadapa/i3-wm-config.git ~/.i3
 - Install [rofi](https://davedavenport.github.io/rofi//INSTALL.html)
 - Install [i3blocks](https://github.com/vivien/i3blocks)
-- Install NodeJS, NPM and Coffeescript (apt-get install nodejs npm coffeescript)
-- cd .i3/i3-project-focus-workflow/; npm install
 - Done!
 
 Shortcuts:
