@@ -6,7 +6,7 @@ set $mod Mod4
 force_focus_wrapping yes
 
 # default workspace layout
-workspace_layout tabbed
+workspace_layout stacking
 
 # Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
 # because somebody sent you a message. You don’t need to remember 
@@ -136,10 +136,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym Left   resize shrink width 10 px or 10 ppt
-    bindsym Down   resize shrink height 10 px or 10 ppt
-    bindsym Up     resize grow height 10 px or 10 ppt
-    bindsym Right  resize grow width 10 px or 10 ppt
+    bindsym Left   resize shrink width  5 px or 5 ppt
+    bindsym Down   resize shrink height 5 px or 5 ppt
+    bindsym Up     resize grow height   5 px or 5 ppt
+    bindsym Right  resize grow width    5 px or 5 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -311,8 +311,8 @@ bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -
 
 
 # create initial workspaces
+exec i3-msg 'workspace 0::misc:1; append_layout ~/.i3/misc_wk.json'
 exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
-exec i3-msg 'workspace 1::music:1; append_layout ~/.i3/music_wk.json'
 
 # start applications
 exec --no-startup-id google-chrome
@@ -326,6 +326,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton --vsync opengl --backend glx --paint-on-overlay
 exec --no-startup-id synergy
 exec --no-startup-id clementine
+exec --no-startup-id terminator
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
@@ -338,16 +339,20 @@ for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
 for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
 
 for_window [class="^Emacs$"]               title_format "Emacs .......... %title"
+for_window [class="^Emacs24$"]             title_format "Emacs .......... %title"
 for_window [class="^Firefox$"]             title_format "Firefox ........ %title"
 for_window [class="^Gnome-terminal$"]      title_format "Terminal ....... %title"
 for_window [class="^Google-chrome$"]       title_format "Chrome ......... %title"
 for_window [class="^Gvim$"]                title_format "Vim ............ %title"
 for_window [class="^Nemo$"]                title_format "Nemo ........... %title"
+for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"
+for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
+for_window [class="^Smplayer$"]            title_format "Videos ......... %title"
+for_window [class="^Steam$"]               title_format "Steam .......... %title"
 for_window [class="^Terminator$"]          title_format "Terminal ....... %title"
 for_window [class="^Vlc$"]                 title_format "VLC ............ %title"
 for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title"
 for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
+for_window [class="^qBittorrent$"]         title_format "Torrents ....... %title"
+for_window [class="^qbittorrent$"]         title_format "Torrents ....... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
-for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
-for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"
-
