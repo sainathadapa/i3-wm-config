@@ -325,7 +325,6 @@ exec --no-startup-id clementine
 exec --no-startup-id nm-applet
 exec --no-startup-id compton --vsync opengl --backend glx --paint-on-overlay
 exec --no-startup-id synergy
-exec --no-startup-id clementine
 exec --no-startup-id terminator
 
 popup_during_fullscreen leave_fullscreen
