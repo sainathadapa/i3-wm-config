@@ -282,6 +282,9 @@ bindsym $mod+z scratchpad show
 # hide_edge_borders both
 hide_edge_borders none
 
+# Toggle border
+bindsym $mod+x border toggle
+
 # window border size
 new_window pixel 1
 
