@@ -355,3 +355,11 @@ for_window [class="^google-chrome$"]       title_format "Chrome ......... %title
 for_window [class="^qBittorrent$"]         title_format "Torrents ....... %title"
 for_window [class="^qbittorrent$"]         title_format "Torrents ....... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
+
+# display settings
+set $lm VGA-0
+set $rm DVI-D-1
+exec --no-startup-id xrandr --output $rm --primary --right-of $lm
+exec --no-startup-id i3-msg restart
+exec --no-startup-id nvidia-settings --assign CurrentMetaMode="VGA-0:1600x900_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-1:1920x1080_60 +1600+0 { ForceFullCompositionPipeline = On }"
+
