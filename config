@@ -258,7 +258,7 @@ mode "workspace" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command i3blocks -c ~/.i3/i3blocks.conf
+    status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_output primary 
     position top
     colors {
@@ -314,8 +314,8 @@ bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -
 
 
 # create initial workspaces
-exec i3-msg 'workspace 0::misc:1; append_layout ~/.i3/misc_wk.json'
 exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
+exec i3-msg 'workspace 1::default:1; append_layout ~/.i3/misc_wk.json'
 
 # start applications
 exec --no-startup-id google-chrome
@@ -356,10 +356,6 @@ for_window [class="^qBittorrent$"]         title_format "Torrents ....... %title
 for_window [class="^qbittorrent$"]         title_format "Torrents ....... %title"
 for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
 
-# display settings
-set $lm VGA-0
-set $rm DVI-D-1
-exec --no-startup-id xrandr --output $rm --primary --right-of $lm
-exec --no-startup-id i3-msg restart
-exec --no-startup-id nvidia-settings --assign CurrentMetaMode="VGA-0:1600x900_60 +0+0 { ForceFullCompositionPipeline = On }, DVI-D-1:1920x1080_60 +1600+0 { ForceFullCompositionPipeline = On }"
+# solid wallpaper
+exec --no-startup-id xsetroot -solid "#333333"
 
