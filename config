@@ -229,9 +229,6 @@ mode "mouse" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+m mode "mouse"
-
-
 # this serves as the exhaustive collection of things one can do with workspaces
 mode "workspace" {
     bindsym Left   workspace prev_on_output
