@@ -40,11 +40,6 @@ bindsym $mod+Return exec terminator
 # kill focused window
 bindsym F4 kill
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym F10 exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -293,7 +288,8 @@ bindsym $mod+Control+Tab     exec ~/.i3/i3-project-focus-workflow/cycleContainer
 bindsym $mod+n               exec ~/.i3/i3-project-focus-workflow/renameProject.py
 
 # rofi bindings
-bindsym F9 exec rofi -show run -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym F9  exec rofi -show run    -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym F10 exec rofi -show drun   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 
 # create initial workspaces
