@@ -292,6 +292,9 @@ bindsym F9  exec rofi -show run    -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -
 bindsym F10 exec rofi -show drun   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 
+# move any window to the current workspace
+bindsym F8 exec python ~/.i3/quickswitch.py
+
 # create initial workspaces
 exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
 
