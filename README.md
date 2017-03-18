@@ -3,7 +3,7 @@ This repo contains my custom configuration for [I3 tiling window manager](https:
 Notes:
 - $mod key is Mod4 (Windows key on most keyboards)
 - A project is a set of workspaces with the format - (workspace-number):★(project-name)★(somenumber). Read more about this at [i3-project-focus-workflow](https://github.com/sainathadapa/i3-project-focus-workflow).
-- [i3blocks](https://github.com/vivien/i3blocks), [rofi](https://github.com/DaveDavenport/rofi), and [nodejs](https://nodejs.org/en/) are the dependecies.
+- [i3blocks](https://github.com/vivien/i3blocks) and [rofi](https://github.com/DaveDavenport/rofi) are the dependecies.
 
 Instructions:
 - Backup your i3 config!
@@ -43,7 +43,7 @@ Shortcuts:
 | $mod + z                   | Show scratchpad                                                                     |
 | $mod + x                   | Toggle borders                                                                      |
 | F4                         | Kill the focused window                                                             |
-| F8                         | Change window title of the focused window                                           |
+| F8                         | Opens a GUI for selecting a window that needs to be moved to the current workspace  |
 | F9                         | Rofi GUI to open a program                                                          |
-| F10                        | execute i3-dmenu-desktop                                                            |
+| F10                        | Rofi GUI to open a program                                                          |
 | F12                        | Rofi GUI to switch to a window                                                      |
