@@ -292,6 +292,10 @@ bindsym F9  exec rofi -show run    -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -
 bindsym F10 exec rofi -show drun   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 
+# volume
+bindsym $mod+bracketleft exec ~/.i3/decrease_volume.sh
+bindsym $mod+bracketright exec ~/.i3/increase_volume.sh
+
 # move any window to the current workspace
 bindsym F8 exec python ~/.i3/quickswitch.py
 
