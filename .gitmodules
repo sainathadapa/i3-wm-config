@@ -10,3 +10,6 @@
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
 	url = git@github.com:vivien/i3blocks-contrib.git
+[submodule "quickswitch-for-i3"]
+	path = quickswitch-for-i3
+	url = git@github.com:OliverUv/quickswitch-for-i3.git
