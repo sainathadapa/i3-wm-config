@@ -4,8 +4,8 @@
 [submodule "i3blocks"]
 	path = i3blocks
 	url = git://github.com/vivien/i3blocks
-[submodule "i3-project-focus-workflow"]
-	path = i3-project-focus-workflow
+[submodule "i3-wm-multi-disp-scripts"]
+	path = i3-wm-multi-disp-scripts
 	url = git@github.com:sainathadapa/i3-project-focus-workflow.git
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
