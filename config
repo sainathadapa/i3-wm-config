@@ -312,6 +312,7 @@ exec --no-startup-id cinnamon-settings sound
 exec --no-startup-id nm-applet
 exec --no-startup-id terminator
 exec --no-startup-id slack
+exec --no-startup-id rescuetime
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
