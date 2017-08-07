@@ -17,9 +17,9 @@ workspace_auto_back_and_forth yes
 
 # window (client) colors
 # class                 border  backgr. text    indicator
-client.focused          #0088CC #0088CC #ffffff #dddddd
-client.focused_inactive #333333 #333333 #888888 #292d2e
-client.unfocused        #333333 #333333 #888888 #292d2e
+client.focused          #000000 #0088CC #ffffff #dddddd
+client.focused_inactive #000000 #333333 #888888 #292d2e
+client.unfocused        #000000 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -36,7 +36,7 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym F4 kill
