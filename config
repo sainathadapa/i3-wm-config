@@ -8,7 +8,7 @@ set $mod Mod4
 force_focus_wrapping yes
 
 # default workspace layout
-workspace_layout stacking
+workspace_layout tabbed
 
 # Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
 # because somebody sent you a message. You don’t need to remember 
