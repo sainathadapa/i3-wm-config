@@ -326,24 +326,8 @@ for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
 for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
 
-for_window [class="^Emacs$"]               title_format "Emacs .......... %title"
-for_window [class="^Emacs24$"]             title_format "Emacs .......... %title"
-for_window [class="^Firefox$"]             title_format "Firefox ........ %title"
-for_window [class="^Gnome-terminal$"]      title_format "Terminal ....... %title"
-for_window [class="^Google-chrome$"]       title_format "Chrome ......... %title"
-for_window [class="^Gvim$"]                title_format "Vim ............ %title"
-for_window [class="^Nemo$"]                title_format "Nemo ........... %title"
-for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"
-for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
-for_window [class="^Smplayer$"]            title_format "Videos ......... %title"
-for_window [class="^Steam$"]               title_format "Steam .......... %title"
-for_window [class="^Terminator$"]          title_format "Terminal ....... %title"
-for_window [class="^Vlc$"]                 title_format "VLC ............ %title"
-for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title"
-for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
-for_window [class="^qBittorrent$"]         title_format "Torrents ....... %title"
-for_window [class="^qbittorrent$"]         title_format "Torrents ....... %title"
-for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
+# Prepend titles with program name
+for_window [class="^.*$"] title_format "%class - %title"
 
 # solid wallpaper
 exec --no-startup-id xsetroot -solid "#333333"
