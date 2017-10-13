@@ -36,7 +36,7 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym F4 kill
@@ -278,7 +278,7 @@ bindsym $mod+x border toggle
 new_window pixel 1
 
 # Lock the system
-bindsym $mod+l exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
+bindsym $mod+l exec i3lock -i ~/Downloads/evil.png -t -f
 
 # multi display workflow scripts
 bindsym $mod+Shift+p         exec ~/.i3/i3-wm-multi-disp-scripts/newProjectWorkspaces.py
@@ -326,9 +326,30 @@ for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
 for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
 
-# Prepend titles with program name
-for_window [class="^.*$"] title_format "%class - %title"
+for_window [class="^Emacs$"]               title_format "Emacs .......... %title"
+for_window [class="^Emacs24$"]             title_format "Emacs .......... %title"
+for_window [class="^Firefox$"]             title_format "Firefox ........ %title"
+for_window [class="^Gnome-terminal$"]      title_format "Terminal ....... %title"
+for_window [class="^Google-chrome$"]       title_format "Chrome ......... %title"
+for_window [class="^Gvim$"]                title_format "Vim ............ %title"
+for_window [class="^Nemo$"]                title_format "Nemo ........... %title"
+for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"
+for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
+for_window [class="^Smplayer$"]            title_format "Videos ......... %title"
+for_window [class="^Steam$"]               title_format "Steam .......... %title"
+for_window [class="^Terminator$"]          title_format "Terminal ....... %title"
+for_window [class="^Vlc$"]                 title_format "VLC ............ %title"
+for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title"
+for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
+for_window [class="^qBittorrent$"]         title_format "Torrents ....... %title"
+for_window [class="^qbittorrent$"]         title_format "Torrents ....... %title"
+for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
 
 # solid wallpaper
 exec --no-startup-id xsetroot -solid "#333333"
-
+exec --no-startup-id xinput set-prop 14 278 1
+exec --no-startup-id nm-applet
+exec --no-startup-id megasync
+exec --no-startup-id /home/lucas/.fehbg
+exec --no-startup-id pnmixer
+exec --no-startup-id Telegram
