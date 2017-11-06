@@ -312,6 +312,7 @@ exec --no-startup-id cinnamon-settings sound
 exec --no-startup-id nm-applet
 exec --no-startup-id alacritty
 exec --no-startup-id emacs
+exec --no-startup-id nvidia-settings
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
