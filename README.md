@@ -2,7 +2,7 @@ This repo contains my custom configuration for [I3 tiling window manager](https:
 
 Notes:
 - $mod key is Mod4 (Windows key on most keyboards)
-- A project is a set of workspaces with the format - (workspace-number):★(project-name)★(somenumber). Read more about this at [i3-project-focus-workflow](https://github.com/sainathadapa/i3-project-focus-workflow).
+- A project is a set of workspaces with the format - (workspace-number)::(project-name):(somenumber). Read more at [i3-wm-multi-disp-scripts](https://github.com/sainathadapa/i3-wm-multi-disp-scripts).
 - [i3blocks](https://github.com/vivien/i3blocks) and [rofi](https://github.com/DaveDavenport/rofi) are the dependecies.
 
 Instructions:
