@@ -3,7 +3,6 @@
 # setting mod variable to windows key
 set $mod Mod4
 
-
 # https://i3wm.org/docs/userguide.html#_focus_wrapping
 force_focus_wrapping yes
 
@@ -14,20 +13,6 @@ workspace_layout tabbed
 # because somebody sent you a message. You don’t need to remember 
 # where you came from now, you can just press $mod+2 again to switch back to "1: www".
 workspace_auto_back_and_forth yes
-
-# window (client) colors
-# class                 border  backgr. text    indicator
-client.focused          #000000 #0088CC #ffffff #dddddd
-client.focused_inactive #000000 #333333 #888888 #292d2e
-client.unfocused        #000000 #333333 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 8
-font pango:Source Code Pro 10
 
 # turn on mouse following
 focus_follows_mouse yes
@@ -123,6 +108,7 @@ bindsym $mod+Shift+0    move container to workspace number 0
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -244,20 +230,36 @@ mode "workspace" {
     bindsym Escape mode "default"
 }
 
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:DejaVu Sans Mono 8
+font pango:Source Code Pro 10
+
+# window (client) colors
+# class                 border  backgr. text    indicator
+client.focused          #000000 #0088CC #ffffff #dddddd
+client.focused_inactive #000000 #333333 #888888 #292d2e
+client.unfocused        #000000 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    font pango:Source Code Pro 10, Awesome 9
     status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_output primary 
+    tray_output primary
     position top
     colors {
-      separator          #666666
+        # colorclass       border     background text
         background         #222222
         statusline         #dddddd
-        focused_workspace  #0088CC #0088CC #ffffff
-        active_workspace   #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
+        separator          #666666
+        focused_workspace  #0088CC    #0088CC    #ffffff
+        active_workspace   #333333    #333333    #ffffff
+        inactive_workspace #333333    #333333    #888888
+        urgent_workspace   #2f343a    #900000    #ffffff
     }
 }
 
@@ -289,9 +291,8 @@ bindsym $mod+Control+Tab     exec ~/.i3/i3-wm-multi-disp-scripts/cycleContainerP
 bindsym $mod+n               exec ~/.i3/i3-wm-multi-disp-scripts/renameProject.py
 
 # rofi bindings
-bindsym F9  exec rofi -show run    -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
-bindsym F10 exec rofi -show drun   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
-bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym F9  exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"
+bindsym F12 exec  rofi -show-icons -show window
 
 # volume
 bindsym $mod+bracketleft exec ~/.i3/decrease_volume.sh
@@ -327,8 +328,8 @@ for_window [class="Nemo" instance="^desktop_window$"] floating disable
 for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
 for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
 
-# Prepend titles with program name
-for_window [class="^.*$"] title_format "%class - %title"
+# Prepend title with program name
+for_window [class=".*"] title_format "%class - %title"
 
 # solid wallpaper
 exec --no-startup-id xsetroot -solid "#333333"
