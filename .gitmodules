@@ -13,3 +13,9 @@
 [submodule "quickswitch-for-i3"]
 	path = quickswitch-for-i3
 	url = git@github.com:OliverUv/quickswitch-for-i3.git
+[submodule "light"]
+	path = light
+	url = git@github.com:haikarainen/light.git
+[submodule "playerctl"]
+	path = playerctl
+	url = git@github.com:acrisci/playerctl.git
