@@ -284,12 +284,13 @@ hide_edge_borders none
 new_window pixel 1
 
 # multi display workflow scripts
-bindsym $mod+Shift+p         exec ~/.i3/i3-wm-multi-disp-scripts/newProjectWorkspaces.py
-bindsym $mod+p               exec ~/.i3/i3-wm-multi-disp-scripts/switchNextProject.py
-bindsym $mod+Tab             exec ~/.i3/i3-wm-multi-disp-scripts/cycleProjectWorkspacesFocus.py
-bindsym $mod+Shift+Tab       exec ~/.i3/i3-wm-multi-disp-scripts/cycleProjectWorkspacesOutput.py
-bindsym $mod+Control+Tab     exec ~/.i3/i3-wm-multi-disp-scripts/cycleContainerProjectWorkspaces.py
-bindsym $mod+o               exec ~/.i3/i3-wm-multi-disp-scripts/renameProject.py
+bindsym $mod+Shift+p         exec ~/.i3/i3_wm_multi_disp_scripts/newProjectWorkspaces.py
+bindsym $mod+p               exec ~/.i3/i3_wm_multi_disp_scripts/switchNextProject.py
+bindsym $mod+Tab             exec ~/.i3/i3_wm_multi_disp_scripts/cycleProjectWorkspacesFocus.py
+bindsym $mod+Shift+Tab       exec ~/.i3/i3_wm_multi_disp_scripts/cycleProjectWorkspacesOutput.py
+bindsym $mod+Control+Tab     exec ~/.i3/i3_wm_multi_disp_scripts/cycleContainerProjectWorkspaces.py
+bindsym $mod+o               exec ~/.i3/i3_wm_multi_disp_scripts/renameProject.py
+bindsym F8                   exec ~/.i3/i3_wm_multi_disp_scripts/quickswitch.py
 
 # rofi bindings
 bindsym F9  exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"
@@ -309,11 +310,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessDown exec ~/.i3/brightness_decrease.sh
 bindsym XF86MonBrightnessUp exec ~/.i3/brightness_increase.sh
 
-# move any window to the current workspace
-bindsym F8 exec python3 ~/.i3/quickswitch-for-i3/quickswitch.py -m
-
 # create initial workspaces
-exec --no-startup-id ~/.i3/i3-wm-multi-disp-scripts/newProjectWorkspaces.py main
+exec --no-startup-id ~/.i3/i3_wm_multi_disp_scripts/newProjectWorkspaces.py main
 
 # start applications
 exec --no-startup-id nm-applet

@@ -5,14 +5,11 @@
 	path = i3blocks
 	url = git://github.com/vivien/i3blocks
 [submodule "i3-wm-multi-disp-scripts"]
-	path = i3-wm-multi-disp-scripts
+	path = i3_wm_multi_disp_scripts
 	url = git@github.com:sainathadapa/i3-project-focus-workflow.git
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
 	url = git@github.com:vivien/i3blocks-contrib.git
-[submodule "quickswitch-for-i3"]
-	path = quickswitch-for-i3
-	url = git@github.com:OliverUv/quickswitch-for-i3.git
 [submodule "light"]
 	path = light
 	url = git@github.com:haikarainen/light.git
