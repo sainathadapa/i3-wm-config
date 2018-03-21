@@ -322,8 +322,9 @@ exec --no-startup-id google-chrome
 exec --no-startup-id slack
 exec --no-startup-id alacritty
 exec --no-startup-id numlockx on
-exec --no-startup-id ~/code/software/Cryptocat.AppImage
-exec --no-startup-id google-play-music-desktop-player
+# exec --no-startup-id ~/code/software/Cryptocat.AppImage
+# exec --no-startup-id google-play-music-desktop-player
+exec --no-startup-id compton -b
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
@@ -342,5 +343,4 @@ for_window [class=".*"] title_format "%class - %title"
 exec --no-startup-id xsetroot -solid "#333333"
 
 # External monitor
-exec --no-startup-id xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
-
+exec --no-startup-id xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-1 --off --output HDMI-1-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
