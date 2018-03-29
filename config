@@ -315,12 +315,9 @@ exec --no-startup-id ~/.i3/i3_wm_multi_disp_scripts/newProjectWorkspaces.py main
 
 # start applications
 exec --no-startup-id nm-applet
-exec --no-startup-id emacs
 exec --no-startup-id pasystray
 exec --no-startup-id dropbox start
 exec --no-startup-id google-chrome
-exec --no-startup-id slack
-exec --no-startup-id alacritty
 exec --no-startup-id numlockx on
 # exec --no-startup-id ~/code/software/Cryptocat.AppImage
 # exec --no-startup-id google-play-music-desktop-player
@@ -342,5 +339,3 @@ for_window [class=".*"] title_format "%class - %title"
 # Solid wallpaper
 exec --no-startup-id xsetroot -solid "#333333"
 
-# External monitor
-exec --no-startup-id xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-1 --off --output HDMI-1-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
