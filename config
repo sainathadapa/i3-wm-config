@@ -286,7 +286,7 @@ new_window pixel 1
 # multi display workflow scripts
 bindsym $mod+Shift+p         exec ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py
 bindsym $mod+p               exec ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/switch_to_next_project.py
-bindsym $mod+Tab             exec ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/focus_next_display.py
+bindsym $mod+Tab             exec ~/.i3/i3_wm_multi_disp_scripts/switcher.sh
 bindsym $mod+Shift+Tab       exec ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/move_workspaces_in_project_to_next_output.py
 bindsym $mod+Control+Tab     exec ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/move_current_container_to_next_workspace_in_project.py
 bindsym $mod+o               exec ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/rename_project.py
@@ -314,14 +314,14 @@ bindsym XF86MonBrightnessUp exec ~/.i3/brightness_increase.sh
 exec --no-startup-id ~/.i3/i3_wm_multi_disp_scripts/.env/bin/python ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py main
 
 # start applications
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id dropbox start
 exec --no-startup-id google-chrome
 exec --no-startup-id numlockx on
-# exec --no-startup-id ~/code/software/Cryptocat.AppImage
-# exec --no-startup-id google-play-music-desktop-player
-exec --no-startup-id compton -b
+exec --no-startup-id alacritty
+exec --no-startup-id nemo
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
