@@ -34,6 +34,10 @@ bindsym $mod+Shift+l move right
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+
     bindsym Left   resize shrink width  5 px or 5 ppt
     bindsym Down   resize shrink height 5 px or 5 ppt
     bindsym Up     resize grow height   5 px or 5 ppt
@@ -43,10 +47,6 @@ mode "resize" {
     bindsym j  resize shrink height 1 px or 1 ppt
     bindsym k  resize grow height   1 px or 1 ppt
     bindsym l  resize grow width    1 px or 1 ppt
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
 }
 
 # focus the parent container
@@ -322,6 +322,7 @@ exec --no-startup-id google-chrome
 exec --no-startup-id numlockx on
 exec --no-startup-id alacritty
 exec --no-startup-id nemo
+exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
