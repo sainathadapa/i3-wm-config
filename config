@@ -21,7 +21,7 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym F4 kill
@@ -320,9 +320,9 @@ exec --no-startup-id pasystray
 exec --no-startup-id dropbox start
 exec --no-startup-id google-chrome
 exec --no-startup-id numlockx on
-exec --no-startup-id alacritty
-exec --no-startup-id nemo
-exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
+exec --no-startup-id gnome-terminal
+# exec --no-startup-id nemo
+# exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
