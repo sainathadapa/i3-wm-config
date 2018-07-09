@@ -16,3 +16,6 @@
 [submodule "playerctl"]
 	path = playerctl
 	url = git@github.com:acrisci/playerctl.git
+[submodule "i3blocks-misc"]
+	path = i3blocks-misc
+	url = git@github.com:Anachron/i3blocks.git
