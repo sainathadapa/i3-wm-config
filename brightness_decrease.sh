@@ -1,7 +1,7 @@
 #!/bin/sh
 sink=`light -G` 
 sink=${sink%.*}
-if [ $sink -gt 10 ]
+if [ $sink -gt 15 ]
 then
   light -U 5
 else

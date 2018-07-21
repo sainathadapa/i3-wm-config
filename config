@@ -69,7 +69,7 @@ bindsym $mod+r mode "resize"
 # toggle touchpad
 bindsym $mod+s exec ~/.i3/touchpad_toggle.sh
 # small window for videos
-bindsym $mod+u fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
+bindsym $mod+u fullscreen disable; floating enable; resize set 1600 900; sticky enable; move position 870 25
 # split in vertical orientation
 bindsym $mod+y split v
 # Toggle border
@@ -318,7 +318,7 @@ exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id dropbox start
-exec --no-startup-id google-chrome
+exec --no-startup-id chromium-browser
 exec --no-startup-id numlockx on
 exec --no-startup-id gnome-terminal
 # exec --no-startup-id nemo
