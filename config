@@ -1,3 +1,4 @@
+# i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # setting mod variable to windows key
@@ -5,7 +6,6 @@ set $mod Mod4
 
 # https://i3wm.org/docs/userguide.html#_focus_wrapping
 force_focus_wrapping yes
-
 # default workspace layout
 workspace_layout stacked
 
@@ -21,10 +21,24 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
+# bindsym $mod+Return exec terminal
 bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym F4 kill
+
+################################################################################################
+## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
+################################################################################################
+
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+#bindsym $mod+Ctrl+m exec pavucontrol
+
+################################################################################################
+
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -63,7 +77,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 # split in horizontal orientation
-bindsym $mod+t split h
+bindsym $mod+t split h;exec notify-send 'tile horizontally'
 # Resize mode
 bindsym $mod+r mode "resize"
 # toggle touchpad
@@ -71,13 +85,14 @@ bindsym $mod+s exec ~/.i3/touchpad_toggle.sh
 # small window for videos
 bindsym $mod+u fullscreen disable; floating enable; resize set 1600 900; sticky enable; move position 870 25
 # split in vertical orientation
-bindsym $mod+y split v
+bindsym $mod+y split v;exec notify-send 'tile vertically'
 # Toggle border
 bindsym $mod+x border toggle
 # Show the first scratchpad window
 bindsym $mod+z scratchpad show
 # Lock the system
 bindsym $mod+q exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
+# bindsym $mod+q exec --no-startup-id blurlock
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -244,8 +259,8 @@ mode "workspace" {
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 8
-font pango:Source Code Pro 7
+# font pango:Source Code Pro 7
+font xft:URWGothic-Book 11
 
 # window (client) colors
 # class                 border  backgr. text    indicator
@@ -276,12 +291,13 @@ bar {
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+z move scratchpad
 
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
 # Hides vertical and horizontal borders when there's only one window.
 # hide_edge_borders both
 hide_edge_borders none
-
-# window border size
-new_window pixel 1
 
 # multi display workflow scripts
 bindsym $mod+Shift+p         exec python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py
@@ -296,10 +312,13 @@ bindsym $mod+Tab             exec ~/.i3/i3_wm_multi_disp_scripts/switcher.sh
 bindsym F9  exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"
 bindsym F12 exec  rofi -show-icons -show window
 
+# launch categorized menu
+bindsym F10 exec --no-startup-id morc_menu
+
 # volume
-bindsym XF86AudioLowerVolume exec ~/.i3/volume_decrease.sh
-bindsym XF86AudioRaiseVolume exec ~/.i3/volume_increase.sh
-bindsym XF86AudioMute exec ~/.i3/volume_mute.sh
+# bindsym XF86AudioLowerVolume exec ~/.i3/volume_decrease.sh
+# bindsym XF86AudioRaiseVolume exec ~/.i3/volume_increase.sh
+# bindsym XF86AudioMute exec ~/.i3/volume_mute.sh
 
 # music
 bindsym XF86AudioPlay exec playerctl 'play-pause'
@@ -309,14 +328,27 @@ bindsym XF86AudioPrev exec playerctl previous
 # brightness
 bindsym XF86MonBrightnessDown exec ~/.i3/brightness_decrease.sh
 bindsym XF86MonBrightnessUp exec ~/.i3/brightness_increase.sh
+# bindsym XF86MonBrightnessUp exec "xbacklight -inc 2; notify-send 'brightness up'"
+# bindsym XF86MonBrightnessDown exec "xbacklight -dec 2; notify-send 'brightness down'"
 
 # create initial workspaces
 exec --no-startup-id python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py main
 
 # start applications
-exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
-exec --no-startup-id pasystray
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id clipit
+# exec --no-startup-id blueman-applet
+# exec_always --no-startup-id sbxkb
+exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_green
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
 exec --no-startup-id dropbox start
 exec --no-startup-id chromium-browser
 exec --no-startup-id numlockx on
@@ -333,6 +365,34 @@ for_window [class="Nemo" instance="^desktop_window$"] floating disable
 # chrome extension popups
 for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
 for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
+
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
 
 # Prepend title with program name
 for_window [class=".*"] title_format "%class - %title"
