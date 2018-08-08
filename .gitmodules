@@ -1,9 +1,3 @@
-[submodule "rofi"]
-	path = rofi
-	url = git@github.com:DaveDavenport/rofi.git
-[submodule "i3blocks"]
-	path = i3blocks
-	url = git://github.com/vivien/i3blocks
 [submodule "i3-wm-multi-disp-scripts"]
 	path = i3_wm_multi_disp_scripts
 	url = git@github.com:sainathadapa/i3-project-focus-workflow.git

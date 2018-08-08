@@ -6,6 +6,7 @@ set $mod Mod4
 
 # https://i3wm.org/docs/userguide.html#_focus_wrapping
 force_focus_wrapping yes
+
 # default workspace layout
 workspace_layout stacked
 
@@ -21,8 +22,7 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec terminal
 
 # kill focused window
 bindsym F4 kill
@@ -45,6 +45,24 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+
+# Set shut down, restart and locking features
+bindsym $mod+minus mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -264,10 +282,18 @@ font xft:URWGothic-Book 11
 
 # window (client) colors
 # class                 border  backgr. text    indicator
-client.focused          #000000 #0088CC #ffffff #dddddd
-client.focused_inactive #000000 #333333 #888888 #292d2e
-client.unfocused        #000000 #333333 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+# client.focused          #000000 #0088CC #ffffff #dddddd
+# client.focused_inactive #000000 #333333 #888888 #292d2e
+# client.unfocused        #000000 #333333 #888888 #292d2e
+# client.urgent           #2f343a #900000 #ffffff #900000
+# class                   border  backgr. text    indic.   child_border
+client.focused          #556064 #556064 #80FFF9 #FDF6E3
+client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000 
+client.background       #2B2C2B
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -278,15 +304,28 @@ bar {
     position top
     colors {
         # colorclass       border     background text
-        background         #222222
-        statusline         #dddddd
-        separator          #666666
-        focused_workspace  #0088CC    #0088CC    #ffffff
-        active_workspace   #333333    #333333    #ffffff
-        inactive_workspace #333333    #333333    #888888
-        urgent_workspace   #2f343a    #900000    #ffffff
+        # background         #222222
+        # statusline         #dddddd
+        # separator          #666666
+        # focused_workspace  #0088CC    #0088CC    #ffffff
+        # active_workspace   #333333    #333333    #ffffff
+        # inactive_workspace #333333    #333333    #888888
+        # urgent_workspace   #2f343a    #900000    #ffffff
+
+        #                  border  backgr. text
+        background         #222D31
+        statusline         #F9FAF9
+        separator          #454947
+        focused_workspace  #F9FAF9 #16a085 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
+
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+z move scratchpad
@@ -334,7 +373,7 @@ bindsym XF86MonBrightnessUp exec ~/.i3/brightness_increase.sh
 # create initial workspaces
 exec --no-startup-id python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py main
 
-# start applications
+# Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
@@ -350,9 +389,8 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id dropbox start
-exec --no-startup-id chromium-browser
 exec --no-startup-id numlockx on
-exec --no-startup-id alacritty
+exec --no-startup-id terminal
 # exec --no-startup-id nemo
 # exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 
@@ -397,6 +435,66 @@ for_window [class="Xfburn"] floating enable
 # Prepend title with program name
 for_window [class=".*"] title_format "%class - %title"
 
-# Solid wallpaper
-exec --no-startup-id xsetroot -solid "#333333"
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
 
+# Solid wallpaper
+# exec --no-startup-id xsetroot -solid "#333333"
+
+
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+gaps inner 14
+gaps outer -2
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
