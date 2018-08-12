@@ -9,6 +9,6 @@ else
 fi
 sink=`light -G` 
 sink=${sink%.*}
-notify-send $sink -t 500
+notify-send $sink
 
 
