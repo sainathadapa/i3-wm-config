@@ -99,7 +99,7 @@ bindsym $mod+t split h;exec notify-send 'tile horizontally'
 # Resize mode
 bindsym $mod+r mode "resize"
 # toggle touchpad
-bindsym $mod+s exec ~/.i3/touchpad_toggle.sh
+bindsym $mod+s exec ~/.i3/utils/touchpad_toggle.sh
 # small window for videos
 bindsym $mod+u fullscreen disable; floating enable; resize set 1600 900; sticky enable; move position 870 25
 # split in vertical orientation
@@ -356,9 +356,9 @@ bindsym F12 exec  rofi -show-icons -show window
 bindsym F10 exec --no-startup-id morc_menu
 
 # volume
-# bindsym XF86AudioLowerVolume exec ~/.i3/volume_decrease.sh
-# bindsym XF86AudioRaiseVolume exec ~/.i3/volume_increase.sh
-# bindsym XF86AudioMute exec ~/.i3/volume_mute.sh
+# bindsym XF86AudioLowerVolume exec ~/.i3/utils/volume_decrease.sh
+# bindsym XF86AudioRaiseVolume exec ~/.i3/utils/volume_increase.sh
+# bindsym XF86AudioMute exec ~/.i3/utils/volume_mute.sh
 
 # music
 bindsym XF86AudioPlay exec playerctl 'play-pause'
@@ -366,8 +366,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # brightness
-bindsym XF86MonBrightnessDown exec ~/.i3/brightness_decrease.sh
-bindsym XF86MonBrightnessUp exec ~/.i3/brightness_increase.sh
+bindsym XF86MonBrightnessDown exec ~/.i3/utils/brightness_decrease.sh
+bindsym XF86MonBrightnessUp exec ~/.i3/utils/brightness_increase.sh
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 2; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 2; notify-send 'brightness down'"
 
