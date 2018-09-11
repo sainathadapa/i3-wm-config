@@ -1,14 +1,28 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# setting mod variable to windows key
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+
+# set default desktop layout (default is tiling)
+workspace_layout stacked
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
+# Hides vertical and horizontal borders when there's only one window.
+hide_edge_borders none
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font xft:URWGothic-Book 11
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
 
 # https://i3wm.org/docs/userguide.html#_focus_wrapping
 force_focus_wrapping yes
-
-# default workspace layout
-workspace_layout stacked
 
 # Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
 # because somebody sent you a message. You don’t need to remember 
@@ -17,9 +31,6 @@ workspace_auto_back_and_forth yes
 
 # turn on mouse following
 focus_follows_mouse yes
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminal
@@ -101,7 +112,7 @@ bindsym $mod+r mode "resize"
 # toggle touchpad
 bindsym $mod+s exec ~/.i3/utils/touchpad_toggle.sh
 # small window for videos
-bindsym $mod+u fullscreen disable; floating enable; resize set 1600 900; sticky enable; move position 870 25
+bindsym $mod+u fullscreen disable; floating enable; resize set 800 450; sticky enable; move position 870 25
 # split in vertical orientation
 bindsym $mod+y split v;exec notify-send 'tile vertically'
 # Toggle border
@@ -273,71 +284,13 @@ mode "workspace" {
     bindsym Escape mode "default"
 }
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:Source Code Pro 7
-font xft:URWGothic-Book 11
 
-# window (client) colors
-# class                 border  backgr. text    indicator
-# client.focused          #000000 #0088CC #ffffff #dddddd
-# client.focused_inactive #000000 #333333 #888888 #292d2e
-# client.unfocused        #000000 #333333 #888888 #292d2e
-# client.urgent           #2f343a #900000 #ffffff #900000
-# class                   border  backgr. text    indic.   child_border
-client.focused          #556064 #556064 #80FFF9 #FDF6E3
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-client.placeholder      #000000 #0c0c0c #ffffff #000000 
-client.background       #2B2C2B
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    i3bar_command i3bar -t
-    font pango:Source Code Pro 10, Awesome 10
-    status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_output primary
-    position top
-    colors {
-        # colorclass       border     background text
-        # background         #222222
-        # statusline         #dddddd
-        # separator          #666666
-        # focused_workspace  #0088CC    #0088CC    #ffffff
-        # active_workspace   #333333    #333333    #ffffff
-        # inactive_workspace #333333    #333333    #888888
-        # urgent_workspace   #2f343a    #900000    #ffffff
-
-        #                  border  backgr. text
-        background         #222D31
-        statusline         #F9FAF9
-        separator          #454947
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-}
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+z move scratchpad
-
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
-
-# Hides vertical and horizontal borders when there's only one window.
-# hide_edge_borders both
-hide_edge_borders none
 
 # multi display workflow scripts
 bindsym $mod+Shift+p         exec python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py
@@ -439,9 +392,36 @@ for_window [class=".*"] title_format "%class - %title"
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-# Solid wallpaper
-# exec --no-startup-id xsetroot -solid "#333333"
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    i3bar_command i3bar -t
+    status_command i3blocks -c ~/.i3/i3blocks.conf
+    tray_output primary
 
+    position top
+    colors {
+        background #222D31
+        statusline #F9FAF9
+        separator  #454947
+
+#                          border  backgr. text
+        focused_workspace  #F9FAF9 #16a085 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
+}
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+client.focused          #556064 #556064 #80FFF9 #FDF6E3
+client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000 
+client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
