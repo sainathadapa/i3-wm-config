@@ -328,6 +328,7 @@ bindsym XF86MonBrightnessUp exec ~/.i3/utils/brightness_increase.sh
 exec --no-startup-id python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py main
 
 # Autostart applications
+exec --no-startup-id dropbox start
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
@@ -342,7 +343,6 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id dropbox start
 exec --no-startup-id dropbox status
 exec --no-startup-id terminal
 # exec --no-startup-id nemo
