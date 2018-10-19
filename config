@@ -421,12 +421,12 @@ bar {
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-client.focused          #556064 #556064 #80FFF9 #FDF6E3
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-client.placeholder      #000000 #0c0c0c #ffffff #000000 
-client.background       #2B2C2B
+client.focused            #556064 #556064 #80FFF9 #FDF6E3
+client.focused_inactive   #2F3D44 #2F3D44 #1ABC9C #454948
+client.unfocused          #2F3D44 #2F3D44 #1ABC9C #454948
+client.urgent             #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder        #000000 #0c0c0c #ffffff #000000 
+client.background         #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
