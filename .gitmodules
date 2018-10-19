@@ -4,9 +4,6 @@
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
 	url = git@github.com:vivien/i3blocks-contrib.git
-[submodule "light"]
-	path = light
-	url = git@github.com:haikarainen/light.git
 [submodule "i3blocks-misc"]
 	path = i3blocks-misc
 	url = git@github.com:Anachron/i3blocks.git
