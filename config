@@ -35,6 +35,11 @@ focus_follows_mouse yes
 # start a terminal
 bindsym $mod+Return exec terminal
 
+# screenshots
+bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+
 # kill focused window
 bindsym F4 kill
 
