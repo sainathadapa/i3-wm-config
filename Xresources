@@ -66,8 +66,13 @@ XTerm*selectToClipboard: true
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+! from https://www.reddit.com/r/archlinux/comments/5gntxy/urxvt_source_code_pro_font_looks_bad/
+URxvt*font: xft:Source Code Pro:size=12:antialias=true:hinting=true
+URxvt*boldFont: xft:Source Code Pro:size=12:antialias=true:hinting=true
+URxvt*italicFont: xft:Source Code Pro:style=Oblique:size=12:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:Source Code Pro:style=Bold Oblique:size=12:antialias=true:hinting=true
 
+! URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
 ! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
