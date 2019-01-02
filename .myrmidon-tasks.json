@@ -1,0 +1,6 @@
+[
+  {
+    "name": "Screenshot",
+    "command": "i3-scrot"
+  }
+]
