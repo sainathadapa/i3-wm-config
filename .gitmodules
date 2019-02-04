@@ -9,4 +9,4 @@
 	url = git@github.com:Anachron/i3blocks.git
 [submodule "myrmidon"]
 	path = myrmidon
-	url = git@github.com:sainathadapa/myrmidon.git
+	url = https://github.com/moustacheful/myrmidon.git
