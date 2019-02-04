@@ -341,17 +341,16 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id dropbox status
 exec --no-startup-id terminal
+exec --no-startup-id dropbox # making sure dropbox is up
 # exec --no-startup-id nemo
-# exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
