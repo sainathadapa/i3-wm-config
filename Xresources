@@ -123,8 +123,8 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*scrollBar_align:            mode
 ! URxvt*thickness:                  number
 ! URxvt*scrollTtyOutput:            boolean
-! URxvt*scrollTtyKeypress:          boolean
-! URxvt*scrollWithBuffer:           boolean
+URxvt*scrollTtyKeypress:          true
+URxvt*scrollWithBuffer:           true
 ! URxvt*tintColor:                  !7DA55
 ! URxvt*blurRadius:                 HxV
 ! URxvt*fading:                     number
