@@ -307,7 +307,7 @@ bindsym F8                   exec python3 ~/.i3/i3_wm_multi_disp_scripts/bring_c
 bindsym $mod+Tab             exec ~/.i3/i3_wm_multi_disp_scripts/switcher.sh
 
 # rofi bindings
-bindsym F9  exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"
+bindsym F9  exec "rofi -show-icons -modi combi -show combi -combi-modi drun,run"
 bindsym F12 exec  rofi -show-icons -show window
 
 # launch categorized menu
@@ -333,22 +333,22 @@ bindsym Shift+XF86MonBrightnessDown exec ~/.i3/utils/brightness_gui.sh
 exec --no-startup-id python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py main
 
 # Autostart applications
-exec --no-startup-id dropbox start
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id terminal
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id dropbox start
 # exec --no-startup-id nemo
 
 popup_during_fullscreen leave_fullscreen

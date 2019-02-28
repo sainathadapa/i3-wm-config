@@ -8,60 +8,48 @@ Xft.lcdfilter: lcddefault
 
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
+! rofi.color-enabled: true
+! rofi.color-window: #393939, #393939, #268bd2
+! rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+! rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+! rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+
 rofi.color-enabled: true
-rofi.color-window: #393939, #393939, #268bd2
-rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
-rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
-rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+rofi.color-window: #1e1e20, #dc7f41, #dc7f41
+rofi.color-normal: #1e1e20, #c5c8c6, #1e1e20, #1e1e20, #dc7f41
+rofi.color-active: #1e1e20, #c5c8c6, #1e1e20, #1e1e20, #dc7f41
+rofi.color-urgent: #1e1e20, #c5c8c6, #1e1e20, #1e1e20, #dc7f41
+
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.lines: 5
+rofi.font: Source Code Pro Semibold 10.5
+rofi.bw: 1
+rofi.columns: 2
+rofi.padding: 5
+rofi.fixed-num-lines: true
+rofi.hide-scrollbar: true
 ! ------------------------------------------------------------------------------
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          Fixed
-XTerm*faceSize:          11
-XTerm*reverseVideo:      on
-XTerm*selectToClipboard: true
-
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
-
-!! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
-
-!! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
-
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
-
-!! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
-
-!! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
-
-!! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
-
-!! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
-
-!! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*background: #1e1e20
+*foreground: #c5c8c6
+*cursorColor: #c5c8c6
+*color0: #1e1e20
+*color1: #e6a57a
+*color2: #e39866
+*color3: #df8b54
+*color4: #dc7f41
+*color5: #85678f
+*color6: #b06534
+*color7: #f1cbb3
+*color8: #f4d8c6
+*color9: #e6a57a
+*color10: #e39866
+*color11: #df8b54
+*color12: #dc7f41
+*color13: #c6723a
+*color14: #b06534
+*color15: #E8E8E8
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
