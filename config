@@ -4,6 +4,10 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Set key folder paths
+set $i3path ~/.i3
+set $i3multipath ~/.i3/i3_wm_multi_disp_scripts
+
 # set default desktop layout (default is tiling)
 workspace_layout stacked
 
@@ -115,7 +119,7 @@ bindsym $mod+t split h;exec notify-send 'tile horizontally'
 # Resize mode
 bindsym $mod+r mode "resize"
 # toggle touchpad
-bindsym $mod+s exec ~/.i3/utils/touchpad_toggle.sh
+bindsym $mod+s exec $i3path/utils/touchpad_toggle.sh
 # small window for videos
 bindsym $mod+u fullscreen disable; floating enable; resize set 800 450; sticky enable; move position 870 25
 # split in vertical orientation
@@ -125,7 +129,7 @@ bindsym $mod+x border toggle
 # Show the first scratchpad window
 bindsym $mod+z scratchpad show
 # Lock the system
-bindsym $mod+q exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
+bindsym $mod+q exec i3lock -i $i3path/i3-lock-screen.png -t -f
 # bindsym $mod+q exec --no-startup-id blurlock
 
 # toggle tiling / floating
@@ -289,8 +293,6 @@ mode "workspace" {
     bindsym Escape mode "default"
 }
 
-
-
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
@@ -298,13 +300,13 @@ bindsym $mod+m bar mode toggle
 bindsym $mod+Shift+z move scratchpad
 
 # multi display workflow scripts
-bindsym $mod+Shift+p         exec python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py
-bindsym $mod+p               exec python3 ~/.i3/i3_wm_multi_disp_scripts/switch_to_next_project.py
-bindsym $mod+Shift+Tab       exec python3 ~/.i3/i3_wm_multi_disp_scripts/move_workspaces_in_project_to_next_output.py
-bindsym $mod+Control+Tab     exec python3 ~/.i3/i3_wm_multi_disp_scripts/move_current_container_to_next_workspace_in_project.py
-bindsym $mod+o               exec python3 ~/.i3/i3_wm_multi_disp_scripts/rename_project.py
-bindsym F8                   exec python3 ~/.i3/i3_wm_multi_disp_scripts/bring_container_to_current_workspace.py
-bindsym $mod+Tab             exec ~/.i3/i3_wm_multi_disp_scripts/switcher.sh
+bindsym $mod+Shift+p         exec $i3multipath/.env/bin/python $i3multipath/create_new_project.py
+bindsym $mod+p               exec $i3multipath/.env/bin/python $i3multipath/switch_to_next_project.py
+bindsym $mod+Shift+Tab       exec $i3multipath/.env/bin/python $i3multipath/move_workspaces_in_project_to_next_output.py
+bindsym $mod+Control+Tab     exec $i3multipath/.env/bin/python $i3multipath/move_current_container_to_next_workspace_in_project.py
+bindsym $mod+o               exec $i3multipath/.env/bin/python $i3multipath/rename_project.py
+bindsym F8                   exec $i3multipath/.env/bin/python $i3multipath/bring_container_to_current_workspace.py
+bindsym $mod+Tab             exec $i3multipath/switcher.sh
 
 # rofi bindings
 bindsym F9  exec "rofi -show-icons -modi combi -show combi -combi-modi drun,run"
@@ -324,13 +326,13 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # brightness
-bindsym XF86MonBrightnessDown exec ~/.i3/utils/brightness_decrease.sh
-bindsym XF86MonBrightnessUp exec ~/.i3/utils/brightness_increase.sh
-bindsym Shift+XF86MonBrightnessUp exec ~/.i3/utils/brightness_gui.sh
-bindsym Shift+XF86MonBrightnessDown exec ~/.i3/utils/brightness_gui.sh
+bindsym XF86MonBrightnessDown exec $i3path/utils/brightness_decrease.sh
+bindsym XF86MonBrightnessUp exec $i3path/utils/brightness_increase.sh
+bindsym Shift+XF86MonBrightnessUp exec $i3path/utils/brightness_gui.sh
+bindsym Shift+XF86MonBrightnessDown exec $i3path/utils/brightness_gui.sh
 
 # create initial workspaces
-exec --no-startup-id python3 ~/.i3/i3_wm_multi_disp_scripts/create_new_project.py main
+exec --no-startup-id $i3multipath/.env/bin/python $i3multipath/create_new_project.py main
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -348,6 +350,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id terminal
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id dropbox start
 exec --no-startup-id dropbox start
 # exec --no-startup-id nemo
 
@@ -399,7 +402,7 @@ for_window [urgent=latest] focus
 # finds out, if available)
 bar {
     i3bar_command i3bar -t
-    status_command i3blocks -c ~/.i3/i3blocks.conf
+    status_command i3blocks -c $i3path/i3blocks.conf
     tray_output primary
 
     position top
