@@ -73,7 +73,7 @@ URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
 URxvt*background:                 black
 URxvt*foreground:                 grey
-URxvt*saveLines:                  5000
+URxvt*saveLines:                  10000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:            true
@@ -191,8 +191,12 @@ URxvt*scrollWithBuffer:           true
 ! URxvt*secondaryScroll:            boolean
 ! URxvt*perl-lib:                   string
 ! URxvt*perl-eval:                  perl-eval
-! URxvt*perl-ext-common:            string
-! URxvt*perl-ext:                   string
+URxvt*perl-ext:                     default,url-select
+URxvt.perl-ext-common:              default
+URxvt.url-launcher:                 /usr/bin/xdg-open
+URxvt.url-select.launcher:          /usr/bin/xdg-open
+URxvt.url-select.underline:         true
+URxvt.matcher.button:               1
 ! URxvt*iso14755:                   boolean
 ! URxvt*iso14755_52:                boolean
 ! URxvt*xrm:                        string
