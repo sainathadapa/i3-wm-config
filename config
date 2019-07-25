@@ -316,9 +316,9 @@ bindsym F12 exec  rofi -show-icons -show window
 bindsym F10 exec --no-startup-id morc_menu
 
 # volume
-# bindsym XF86AudioLowerVolume exec ~/.i3/utils/volume_decrease.sh
-# bindsym XF86AudioRaiseVolume exec ~/.i3/utils/volume_increase.sh
-# bindsym XF86AudioMute exec ~/.i3/utils/volume_mute.sh
+bindsym XF86AudioLowerVolume exec ~/.i3/utils/volume_decrease.sh
+bindsym XF86AudioRaiseVolume exec ~/.i3/utils/volume_increase.sh
+bindsym XF86AudioMute exec ~/.i3/utils/volume_mute.sh
 
 # music
 bindsym XF86AudioPlay exec playerctl 'play-pause'
@@ -335,7 +335,7 @@ bindsym Shift+XF86MonBrightnessDown exec $i3path/utils/brightness_gui.sh
 exec --no-startup-id $i3multipath/.env/bin/python $i3multipath/create_new_project.py main
 
 # Autostart applications
-exec --no-startup-id dropbox start
+# exec --no-startup-id dropbox start
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
@@ -346,7 +346,7 @@ exec --no-startup-id pamac-tray
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id terminal
 exec --no-startup-id nm-applet
