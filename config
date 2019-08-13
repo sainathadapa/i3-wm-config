@@ -20,7 +20,8 @@ hide_edge_borders none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+# font xft:URWGothic-Book 11
+font pango: Source Code Pro 10
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -337,9 +338,9 @@ exec --no-startup-id $i3multipath/.env/bin/python $i3multipath/create_new_projec
 # Autostart applications
 # exec --no-startup-id dropbox start
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-# #exec --no-startup-id manjaro-hello
-#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
+#exec --no-startup-id manjaro-hello
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
@@ -350,9 +351,9 @@ exec --no-startup-id pamac-tray
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id terminal
 exec --no-startup-id nm-applet
-#exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 exec --no-startup-id dropbox start
-#exec --no-startup-id dropbox start
+exec --no-startup-id insync start
 # exec --no-startup-id nemo
 
 popup_during_fullscreen leave_fullscreen
@@ -403,7 +404,8 @@ for_window [urgent=latest] focus
 # finds out, if available)
 bar {
     i3bar_command i3bar -t
-    status_command i3blocks -c $i3path/i3blocks.conf
+    # status_command i3blocks -c $i3path/i3blocks.conf
+    status_command py3status -c $i3path/i3status.conf
     tray_output primary
 
     position top
