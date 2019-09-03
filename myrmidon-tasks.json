@@ -1,5 +1,9 @@
 [
   {
+    "name": "Screenshot",
+    "command": "i3-scrot"
+  },
+  {
     "name": "Screenshot selection",
     "command": "i3-scrot -s"
   }
