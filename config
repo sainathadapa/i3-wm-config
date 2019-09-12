@@ -42,8 +42,7 @@ bindsym $mod+Return exec terminal
 
 # screenshots
 bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -s
 
 # kill focused window
 bindsym F4 kill
@@ -53,7 +52,7 @@ bindsym F4 kill
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -187,7 +186,7 @@ bindsym $mod+Shift+0    move container to workspace number 0
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "mouse" {
     # set your three speeds here
@@ -314,7 +313,7 @@ bindsym F7 exec "rofi -show-icons -modi combi -show combi -combi-modi drun,run"
 bindsym F12 exec  rofi -show-icons -show window
 
 # launch categorized menu
-bindsym F10 exec --no-startup-id morc_menu
+# bindsym F10 exec --no-startup-id morc_menu
 
 # volume
 bindsym XF86AudioLowerVolume exec ~/.i3/utils/volume_decrease.sh
@@ -322,39 +321,15 @@ bindsym XF86AudioRaiseVolume exec ~/.i3/utils/volume_increase.sh
 bindsym XF86AudioMute exec ~/.i3/utils/volume_mute.sh
 
 # music
-bindsym XF86AudioPlay exec playerctl 'play-pause'
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPlay exec playerctl 'play-pause'
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # brightness
 bindsym XF86MonBrightnessDown exec $i3path/utils/brightness_decrease.sh
 bindsym XF86MonBrightnessUp exec $i3path/utils/brightness_increase.sh
 bindsym Shift+XF86MonBrightnessUp exec $i3path/utils/brightness_gui.sh
 bindsym Shift+XF86MonBrightnessDown exec $i3path/utils/brightness_gui.sh
-
-# create initial workspaces
-exec --no-startup-id $i3multipath/.env/bin/python $i3multipath/create_new_project.py main
-
-# Autostart applications
-# exec --no-startup-id dropbox start
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-# exec --no-startup-id clipit
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-# exec --no-startup-id xautolock -time 10 -locker blurlock
-# exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
-exec --no-startup-id terminal
-exec --no-startup-id nm-applet
-# exec --no-startup-id blueman-applet
-exec --no-startup-id dropbox start
-exec --no-startup-id insync start
-# exec --no-startup-id nemo
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
@@ -383,7 +358,7 @@ for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
+#for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
@@ -456,7 +431,7 @@ smart_borders on
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+# bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -488,3 +463,25 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+
+#############################
+## Autostart applications ###
+#############################
+
+# create initial workspaces
+exec --no-startup-id $i3multipath/.env/bin/python $i3multipath/create_new_project.py main
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id nm-applet
+exec --no-startup-id dropbox start
+exec --no-startup-id insync start
+
+# start a terminal in scratchpad
+for_window [instance="__scratchpad"] move scratchpad 
+exec --no-startup-id urxvt -name __scratchpad
+
