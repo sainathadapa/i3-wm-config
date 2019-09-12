@@ -1,14 +1,12 @@
 #!/bin/sh
-sink=`light -G` 
+sink=`xbacklight -get intel_backlight` 
 sink=${sink%.*}
 if [ $sink -gt 15 ]
 then
-  light -A 5
+  xbacklight -inc 5 intel_backlight
 else
-  light -A 1
+  xbacklight -inc 1 intel_backlight
 fi
-sink=`light -G` 
-sink=${sink%.*}
 notify-send $sink
 
 

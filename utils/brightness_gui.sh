@@ -1,7 +1,7 @@
 #!/bin/sh
-brightness=`light -G` 
+brightness=`xbacklight -get intel_backlight` 
 brightnessInt=${brightness%.*}
 newBrightness=`zenity --scale --value=$brightnessInt`
-light -S $newBrightness
+xbacklight -set $newBrightness intel_backlight
 notify-send $newBrightness
 
