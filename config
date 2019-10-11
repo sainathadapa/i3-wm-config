@@ -1,19 +1,41 @@
-# i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Read `man 5 sway` for a complete reference.
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator
+set $term urxvt
+
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
 # Set key folder paths
-set $i3path ~/.i3
-set $i3multipath ~/.i3/i3_wm_multi_disp_scripts
+set $i3path ~/.config/sway
+set $i3multipath ~/.config/sway/i3_wm_multi_disp_scripts
 
 # set default desktop layout (default is tiling)
-workspace_layout stacked
+workspace_layout stacking
 
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
+default_border pixel 1
 
 # Hides vertical and horizontal borders when there's only one window.
 hide_edge_borders none
@@ -26,8 +48,8 @@ font pango: Source Code Pro 10
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# https://i3wm.org/docs/userguide.html#_focus_wrapping
-force_focus_wrapping yes
+# This option determines what to do when attempting to focus over the edge of a container. If set to no, the focused container will retain focus, if there are no other containers in the direction. If set to yes, focus will be wrapped to the opposite edge of the container, if there are no other containers in the direction. If set to force, focus will be wrapped to the opposite edge of the container, even if there are other containers in the direction. Default is yes.
+focus_wrapping yes
 
 # Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
 # because somebody sent you a message. You don’t need to remember 
@@ -38,20 +60,16 @@ workspace_auto_back_and_forth yes
 focus_follows_mouse yes
 
 # start a terminal
-bindsym $mod+Return exec terminal
-
-# screenshots
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Return exec $term
 
 # kill focused window
-bindsym F4 kill
+bindsym $mod+q kill
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
 # bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
@@ -129,7 +147,7 @@ bindsym $mod+x border toggle
 # Show the first scratchpad window
 bindsym $mod+z scratchpad show
 # Lock the system
-bindsym $mod+q exec i3lock -i $i3path/i3-lock-screen.png -t -f
+# bindsym $mod+q exec i3lock -i $i3path/i3-lock-screen.png -t -f
 # bindsym $mod+q exec --no-startup-id blurlock
 
 # toggle tiling / floating
@@ -183,115 +201,10 @@ bindsym $mod+Shift+9    move container to workspace number 9
 bindsym $mod+Shift+0    move container to workspace number 0
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-mode "mouse" {
-    # set your three speeds here
-
-    set $slow 1
-    set $quick 10
-    set $fast 50
-
-    # Mouse movement (slow/fine-tuned) -- vim keybindings
-
-    bindsym h exec xdotool mousemove_relative -- -$slow 0
-    bindsym j exec xdotool mousemove_relative 0 $slow
-    bindsym k exec xdotool mousemove_relative -- 0 -$slow
-    bindsym l exec xdotool mousemove_relative $slow 0
-
-    # Mouse movement (slow/fine-tuned) -- arrow keys
-
-    bindsym Left exec xdotool mousemove_relative -- -$slow 0
-    bindsym Down exec xdotool mousemove_relative 0 $slow
-    bindsym Up exec xdotool mousemove_relative -- 0 -$slow
-    bindsym Right exec xdotool mousemove_relative $slow 0
-
-    # Mouse movement (quicker) -- vim keybindings
-
-    bindsym Shift+h exec xdotool mousemove_relative -- -$quick 0
-    bindsym Shift+j exec xdotool mousemove_relative 0 $quick
-    bindsym Shift+k exec xdotool mousemove_relative -- 0 -$quick
-    bindsym Shift+l exec xdotool mousemove_relative $quick 0
-
-    # Mouse movement (quicker) -- arrow keys
-
-    bindsym Shift+Left exec xdotool mousemove_relative -- -$quick 0
-    bindsym Shift+Down exec xdotool mousemove_relative 0 $quick
-    bindsym Shift+Up exec xdotool mousemove_relative -- 0 -$quick
-    bindsym Shift+Right exec xdotool mousemove_relative $quick 0
-
-    # Mouse movement (fast) -- vim keybindings
-
-    bindsym Shift+$mod2+h exec xdotool mousemove_relative -- -$fast 0
-    bindsym Shift+$mod2+j exec xdotool mousemove_relative 0 $fast
-    bindsym Shift+$mod2+k exec xdotool mousemove_relative -- 0 -$fast
-    bindsym Shift+$mod2+l exec xdotool mousemove_relative $fast 0
-
-    # Mouse movement (fast) -- arrow keys
-
-    bindsym Shift+$mod2+Left exec xdotool mousemove_relative -- -$fast 0
-    bindsym Shift+$mod2+Down exec xdotool mousemove_relative 0 $fast
-    bindsym Shift+$mod2+Up exec xdotool mousemove_relative -- 0 -$fast
-    bindsym Shift+$mod2+Right exec xdotool mousemove_relative $fast 0
-
-    # Mouse movement (special down-right)
-
-    bindsym m exec xdotool mousemove_relative 10 10
-
-    # Left Click
-    bindsym f exec xdotool click 1
-
-    # Middle Click
-    bindsym d exec xdotool click 2
-
-    # Right Click
-    bindsym s exec xdotool click 3
-
-    # Left Click-and-drag
-    bindsym Shift+f exec xdotool mousedown 1
-
-    # Middle Click-and-drag 
-    bindsym Shift+d exec xdotool mousedown 2
-
-    # Right Click-and-drag
-    bindsym Shift+s exec xdotool mousedown 3
-
-    # Left Drag release
-    bindsym $mod2+f exec xdotool mouseup 1
-
-    # Middle Drag release
-    bindsym $mod2+d exec xdotool mouseup 2
-
-    # Right Drag release
-    bindsym $mod2+s exec xdotool mouseup 3
-
-
-    # return to normal keybindings -- IMPORTANT!!
-
-    bindsym Escape mode "default"
-}
-
-# this serves as the exhaustive collection of things one can do with workspaces
-mode "workspace" {
-    bindsym Left   workspace prev_on_output
-    bindsym Right  workspace next_on_ouput
-    bindsym Down   workspace prev
-    bindsym Up     workspace next
-
-    bindsym Tab    layout toggle all
-
-    bindsym r      exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
-
-    bindsym ','    move workspace to output left
-    bindsym '.'    move workspace to output right
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
 
 # hide/unhide i3status bar
 # bindsym $mod+m bar mode toggle
@@ -333,6 +246,8 @@ bindsym Shift+XF86MonBrightnessDown exec $i3path/utils/brightness_gui.sh
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
+
+for_window [class="^.*"] border pixel 2
 
 # Disable floating for nemo windows
 for_window [class="Nemo" instance="^desktop_window$"] floating disable
@@ -378,41 +293,36 @@ for_window [urgent=latest] focus
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command i3bar -t
-    # status_command i3blocks -c $i3path/i3blocks.conf
     status_command py3status -c $i3path/i3status.conf
-    tray_output primary
 
     position top
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        background #222222
+        statusline #dddddd
+        separator  #666666
 
-#                          border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        focused_workspace  #0088CC #0088CC #ffffff
+        active_workspace   #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
     }
 }
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-client.focused            #556064 #556064 #80FFF9 #FDF6E3
-client.focused_inactive   #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused          #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent             #CB4B16 #FDF6E3 #1ABC9C #268BD2
-client.placeholder        #000000 #0c0c0c #ffffff #000000 
-client.background         #2B2C2B
+# client.focused #0088CC #0088CC #ffffff #dddddd
+# client.focused_inactive #333333 #333333 #888888 #292d2e
+# client.unfocused #333333 #333333 #888888 #292d2e
+# client.urgent #2f343a #900000 #ffffff #900000
+# client.placeholder        #000000 #0c0c0c #ffffff #000000 
+# client.background         #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/outer gaps
-# gaps inner 14
+# gaps inner 5
 # gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -468,20 +378,33 @@ mode "$mode_gaps_outer" {
 #############################
 ## Autostart applications ###
 #############################
+exec xrdb ~/.Xresources
+exec mako
 
 # create initial workspaces
 exec --no-startup-id $i3multipath/.env/bin/python $i3multipath/create_new_project.py main
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
+# exec --no-startup-id nitrogen --restore ; sleep 1; compton -b
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec_always --no-startup-id fix_xcursor
+# exec_always --no-startup-id fix_xcursor
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id insync start
 
 # start a terminal in scratchpad
-for_window [instance="__scratchpad"] move scratchpad 
-exec --no-startup-id urxvt -name __scratchpad
+# for_window [instance="__scratchpad"] move scratchpad 
+# for_window [instance="__scratchpad"] resize set 800 300
+# exec --no-startup-id urxvt -name __scratchpad
 
+for_window [instance="dropdownTerminal"] floating enable
+for_window [instance="dropdownTerminal"] resize set 1500 900
+for_window [instance="dropdownTerminal"] border none 
+for_window [instance="dropdownTerminal"] move position center 
+for_window [instance="dropdownTerminal"] move scratchpad
+exec --no-startup-id urxvt -bg rgba:0000/0000/0000/c800 --depth 32 -pe tabbed -name dropdownTerminal
+# exec --no-startup-id urxvt -name dropdownTerminal 
+# bindsym $mod+grave [instance="dropdownTerminal"] scratchpad show; move position center
+
+include /etc/sway/config.d/*
